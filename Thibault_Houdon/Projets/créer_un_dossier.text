@@ -1,0 +1,18 @@
+Comment créer un dossier et un fichier grâce à python, exemple:
+
+import os
+
+chemin = "/Users/User/Apprendre_Python/"
+projet_2 = os.path.join(chemin, "projet_2")
+print(projet_2)
+if os.path.exists(projet_2):
+    print("Le dossier projet_2 existe déjà.")
+else:
+    os.makedirs(projet_2)
+    print("Le dossier projet_2 a été créé.")
+if os.path.exists(os.path.join(projet_2, "Test.py")):
+    print("Le fichier Test.py existe déjà.")
+else:
+    with open(os.path.join(projet_2, "Test.py"), "w") as fichier:
+        fichier.write("# Ceci est un fichier de test pour le projet 2.\n")
+    print("Le fichier Test.py a été créé.")
