@@ -41,4 +41,4 @@ Chaque dossier contient un **README.md** spécifique décrivant la formation, me
 
 ## 📫 Contact
 - GitHub : [Jordaniakondzo](https://github.com/Jordaniakondzo)  
-- LinkedIn : *(ajouter ton lien ici)*  
+- LinkedIn : [jordaniakondzo3438](https://www.linkedin.com/in/jordaniakondzo3438)  
