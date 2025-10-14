@@ -2,7 +2,7 @@
 
 [![Udemy Course](https://img.shields.io/badge/Udemy-Python%20Formation%20Complète-blueviolet?logo=udemy&style=flat)](https://www.udemy.com/course/formation-complete-python/)  
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)  
-[![Learning Progress](https://img.shields.io/badge/Status-En%20cours-success?style=flat)](#✨-ce-dépôt-github)  
+[![Learning Progress](https://img.shields.io/badge/Status-En%20cours-success?style=flat)](#-ce-dépôt-github)  
 
 ---
 
@@ -30,6 +30,7 @@ Il est utilisé dans des domaines variés comme :
 - Scripting système et traitement de fichiers  
 
 **Ce qui rend Python si populaire :**  
+
 - Syntaxe claire et intuitive  
 - Communauté immense et active  
 - Des milliers de bibliothèques professionnelles  
@@ -48,7 +49,8 @@ Mais c’est en découvrant la formation **[Python : La Formation Complète 2025
 
 ## 📚 À propos de la formation
 
-Cette formation est conçue pour aller de **zéro à expert**, avec :  
+Cette formation est conçue pour aller de **zéro à expert**, avec :
+
 - Plus de 76 heures de contenu vidéo  
 - 15 projets concrets (jeux, sites web, bots, outils de data…)  
 - Des quiz, exercices pratiques et examens  
@@ -70,6 +72,7 @@ Il est le fondateur de **Docstring**, le premier site francophone dédié à l�
 ## 🌐 Pourquoi les plateformes comme Udemy, Coursera, etc. m’ont convaincu
 
 Les cours en ligne m’ont permis de :  
+
 - Apprendre à mon rythme  
 - Revenir sur les notions difficiles  
 - Pratiquer avec des projets concrets  
@@ -96,7 +99,8 @@ Je recommande vivement ces plateformes à toute personne motivée à apprendre s
 
 ## ✨ Ce dépôt GitHub
 
-Ce dépôt contiendra :  
+Ce dépôt contiendra :
+
 - Mes notes personnelles  
 - Les projets réalisés au fil de la formation  
 - Des extraits de code commentés  

@@ -1,4 +1,5 @@
-# ...existing code...
+# Calculatrice avec gestion d'erreurs pour les entrées non numériques et la division par zéro
+# L'utilisateur peut entrer des nombres entiers ou décimaux, positifs ou négatifs
 premier_nombre = deuxieme_nombre = ""
 operation = input("Choisissez une opération (+, -, *, /) : ")
 

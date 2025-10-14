@@ -1,4 +1,5 @@
 # 🧠 Notes de formation Python  
+
 _Formation : Python – La Formation Complète 2025 (Thibault Houdon, Udemy)_  
 
 ---
@@ -41,34 +42,39 @@ Elles posent les bases théoriques et pratiques (installation de Python, configu
 
 ---
 
-# Section 12 : Les types natifs
+## Section 12 : Les types natifs
 
-## 📌 Objectif de la section
+### 📌 Objectif de la section
+
 Comprendre les types de données fondamentaux en Python, leur utilisation, leurs constructeurs, et comment les manipuler efficacement.
 
 ---
 
-## 🔹 Types natifs abordés
+### 🔹 Types natifs abordés
 
 ### Chaînes de caractères (`str`)
+
 - Définition avec guillemets simples ou doubles : `'texte'` ou `"texte"`
 - Fonctions utiles : `len()`, `.upper()`, `.lower()`, `.capitalize()`
 - Accès par index : `mot[0]`
 - Slicing : `mot[1:4]`
 
 ### Nombres (`int`, `float`)
+
 - Entiers (`int`) : `5`, `-3`, `0`
 - Décimaux (`float`) : `3.14`, `-0.5`
 - Opérations : `+`, `-`, `*`, `/`, `//`, `%`, `**`
 
 ### Booléens (`bool`)
+
 - Deux valeurs possibles : `True`, `False`
 - Utilisés dans les conditions et les tests logiques
 - Résultat de comparaisons : `5 > 3 → True`
 
 ---
 
-## 🔸 Constructeurs de types
+### 🔸 Constructeurs de types
+
 Les fonctions suivantes permettent de convertir une valeur vers un type donné :
 
 ```python
@@ -77,9 +83,10 @@ int("42")     # 42
 float("3.14") # 3.14
 bool("")      # False
 ```
+
 ---
 
-## 🧪 Quiz et exercices réalisés
+### 🧪 Quiz et exercices réalisés
 
 - ✅ Quiz sur les chaînes de caractères  
 - ✅ Quiz sur les booléens  
@@ -90,7 +97,7 @@ bool("")      # False
 
 ---
 
-## 🧾 Résumé
+### 🧾 Résumé
 
 - Les types natifs sont les **briques de base** du langage Python.  
 - Ils sont simples à manipuler mais essentiels pour comprendre les structures plus complexes.  
@@ -98,14 +105,16 @@ bool("")      # False
 
 ---
 
-# Section 13 : Les variables
+## Section 13 : Les variables
 
-## 📌 Objectif de la section
+### 📌 Objectif de la section
+
 Comprendre ce qu’est une variable, comment la créer, la nommer correctement, et comment elle interagit avec les objets en mémoire.
 
 ---
 
-## 🔹 Définition et création
+### 🔹 Définition et création
+
 Une variable est un nom qui référence un objet en mémoire.  
 
 Elle se crée simplement par affectation :
@@ -114,26 +123,31 @@ Elle se crée simplement par affectation :
 nom = "Jordani"
 age = 25
 ```
+
 ---
 
-## 🔸 Règles de nommage
+### 🔸 Règles de nommage
+
 - Doit commencer par une lettre ou un underscore `_`  
 - Ne doit pas contenir d’espace ni de caractères spéciaux  
 - Sensible à la casse (`Nom ≠ nom`)  
 
 **Bonnes pratiques :**
+
 - Utiliser des noms explicites (`compteur`, `mot_de_passe`)  
 - Éviter les noms trop courts ou ambigus (`x`, `data`, `temp`)  
 
 ---
 
-## 🧠 Concepts clés
+### 🧠 Concepts clés
+
 Une variable peut changer de type au cours du programme :
 
 ```python
 x = 5       # int
 x = "cinq"  # str
 ```
+
 ---
 Les variables sont des références, pas des conteneurs :
 
@@ -142,7 +156,9 @@ Les variables sont des références, pas des conteneurs :
 - Utiliser `id()` pour voir l’identifiant mémoire
 
 ---
+
 ### 🧪 Quiz et exercices réalisés
+
 - ✅ Quiz sur les variables
 
 - ✅ Exercice : Créer et nommer des variables
@@ -159,31 +175,37 @@ Les variables sont des références, pas des conteneurs :
 
 ---
 
-# Section 14 : Le type des objets et la conversion
+## Section 14 : Le type des objets et la conversion
 
-## 📌 Objectif de la section
+### 📌 Objectif de la section
+
 Comprendre comment identifier le type d’un objet, effectuer des conversions entre types, et anticiper les erreurs liées aux incompatibilités.
 
 ---
 
-## 🔹 Identifier le type d’un objet
+### 🔹 Identifier le type d’un objet
+
 Utiliser la fonction `type()` pour connaître le type d’une variable :  
 
 ```python
 x = "Python"
 print(type(x))  # <class 'str'>
 ```
+
 Tous les objets en Python ont un type : `int`, `float`, `str`, `bool`, `list`, etc.
 
 ---
 
-## 🔸 Conversion entre types
+### 🔸 Conversion entre types
 
 Utiliser les constructeurs pour convertir :
+
 ```python
 int("abc")     # ❌ ValueError
 ```
+
 La conversion `bool()` est utile pour tester la **vérité** d’un objet :
+
 - `bool("")` → False
 - `bool("abc")` → True
 - `bool(0)` → False
@@ -191,13 +213,13 @@ La conversion `bool()` est utile pour tester la **vérité** d’un objet :
 
 ---
 
-## 🧠 Concepts clés
+### 🧠 Concepts clés
 
 - Le type d’un objet détermine son comportement et les méthodes disponibles.
 - La conversion est souvent nécessaire pour manipuler des données utilisateur (input() retourne toujours une chaîne).
 - Il est important de tester les conversions avec try/except pour éviter les erreurs.
 
-## 🧪 Quiz et exercices réalisés
+### 🧪 Quiz et exercices réalisés
 
 - ✅ Quiz sur le type des objets
 
@@ -209,7 +231,7 @@ La conversion `bool()` est utile pour tester la **vérité** d’un objet :
 
 ---
 
-## 🧾 Résumé
+### 🧾 Résumé
 
 - `type()` est essentiel pour comprendre ce que contient une variable.
 - Les conversions permettent de rendre les données compatibles avec les opérations souhaitées.
@@ -217,29 +239,34 @@ La conversion `bool()` est utile pour tester la **vérité** d’un objet :
 
 ---
 
-# Section 15 : Interagir avec l’utilisateur
+## Section 15 : Interagir avec l’utilisateur
 
-## 📌 Objectif de la section
+### 📌 Objectif de la section
+
 Apprendre à récupérer des données saisies par l’utilisateur et à les utiliser dans un programme Python.  
 Comprendre comment gérer les entrées et les convertir au bon format.
 
 ---
 
-## 🔹 La fonction `input()`
+### 🔹 La fonction `input()`
+
 Permet de demander une saisie à l’utilisateur :
 
 ```python
 nom = input("Quel est ton prénom ? ")
 print("Bonjour", nom)
 ```
+
 Par défaut, input() retourne une chaîne de caractères `(str)`, même si l’utilisateur entre un nombre :
+
 ```python
 age = input("Quel est ton âge ? ")  # '25'
 ```
 
 ---
 
-## 🔸 Conversion des entrées
+### 🔸 Conversion des entrées
+
 Il faut convertir les entrées si on veut les utiliser comme des nombres.
 Exemple :
 
@@ -247,14 +274,16 @@ Exemple :
 age = int(input("Quel est ton âge ? "))
 taille = float(input("Quelle est ta taille en mètres ? "))
 ```
+
 Attention aux erreurs si l’utilisateur entre une valeur non convertible :
+
 ```python
 int("abc")  # ❌ ValueError
 ```
 
 ---
 
-## 🧠 Concepts clés
+### 🧠 Concepts clés
 
 - L’interaction avec l’utilisateur rend le programme dynamique.
 - Toujours anticiper le type de données attendu.
@@ -265,16 +294,17 @@ mot_de_passe = input("Entrez votre mot de passe : ")
 if len(mot_de_passe) < 8:
     print("Mot de passe trop court.")
 ```
+
 ---
 
-## 🧪 Quiz et exercices réalisés
+### 🧪 Quiz et exercices réalisés
 
 - ✅ Quiz sur `input()` et les conversions
 - ✅ Exercice : Créer un script interactif
 - ✅ Exercice : Vérifier la validité d’un mot de passe
 - ✅ Exercice : Créer une calculatrice simple avec `input()` et `int()`
 
-## 🧾 Résumé
+### 🧾 Résumé
 
 - `input()` est la porte d’entrée des données utilisateur.
 - Toujours convertir les données au bon type avant de les utiliser.
@@ -282,14 +312,15 @@ if len(mot_de_passe) < 8:
 
 ---
 
-# Section 16 : Apprendre à résoudre des problèmes
+## Section 16 : Apprendre à résoudre des problèmes
 
-## 📌 Objectif de la section
+### 📌 Objectif de la section
 Développer une méthode de réflexion pour aborder les problèmes en programmation, structurer ses idées, et créer des solutions efficaces avec Python.
 
 ---
 
-## 🔹 Étapes de résolution d’un problème
+### 🔹 Étapes de résolution d’un problème
+
 1. **Comprendre le problème**  
    - Lire attentivement l’énoncé  
    - Identifier les données d’entrée et de sortie  
@@ -314,14 +345,16 @@ Développer une méthode de réflexion pour aborder les problèmes en programmat
 
 ---
 
-## 🧠 Concepts clés
+### 🧠 Concepts clés
+
 - La programmation est avant tout une **manière de penser**.  
 - Il faut apprendre à traduire une idée en **instructions claires**.  
 - La rigueur et la patience sont essentielles pour progresser.  
 
 ---
 
-## 🧾 Résumé
+### 🧾 Résumé
+
 - Résoudre un problème, c’est avant tout **bien le comprendre**.  
 - Il faut **structurer sa pensée** avant de coder.  
 - Les erreurs font partie du processus d’apprentissage.  
@@ -329,21 +362,23 @@ Développer une méthode de réflexion pour aborder les problèmes en programmat
 
 ---
 
-# Section 17 : Manipuler les chaînes de caractères
+## Section 17 : Manipuler les chaînes de caractères
 
-## 📌 Objectif de la section
+### 📌 Objectif de la section
+
 Maîtriser les opérations courantes sur les chaînes de caractères (str) : extraction, modification, recherche, nettoyage, et transformation.
 
 ---
 
-## 🔹 Accès aux caractères
+### 🔹 Accès aux caractères
+
 - Par index : `mot[0]` → premier caractère  
 - Par slicing : `mot[1:4]` → sous-chaîne d’un intervalle donné  
 - Inversion de chaîne : `mot[::-1]` 
 
 ---
 
-## 🔸 Méthodes utiles
+### 🔸 Méthodes utiles
 
 Python fournit de nombreuses méthodes intégrées pour travailler avec les chaînes.  
 Ces méthodes permettent de transformer, nettoyer et analyser du texte facilement :
@@ -362,14 +397,14 @@ Ces méthodes permettent de transformer, nettoyer et analyser du texte facilemen
 
 ---
 
-## 🔹 Concaténation et répétition
+### 🔹 Concaténation et répétition
 
 - Concaténer deux chaînes : `mot1 + mot2`
 - Répéter une chaîne plusieurs fois :  `"ha" * 3 → "hahaha"`
 
 ---
 
-## 🔸 Vérifications
+### 🔸 Vérifications
 
 - `in` / `is` pour tester la présence ou l’identité : `"py" in "python" → True`
   
@@ -377,7 +412,7 @@ Ces méthodes permettent de transformer, nettoyer et analyser du texte facilemen
 
 ---
 
-## 🧠 Concepts clés
+### 🧠 Concepts clés
 
 - Les chaînes sont **immuables** : on ne peut pas modifier un caractère directement.  
 - Les méthodes retournent toujours une **nouvelle chaîne**.  
@@ -385,7 +420,7 @@ Ces méthodes permettent de transformer, nettoyer et analyser du texte facilemen
 
 ---
 
-## 🧪 Quiz et exercices réalisés
+### 🧪 Quiz et exercices réalisés
 
 - ✅ Quiz sur les méthodes de chaînes  
 - ✅ Exercice : Nettoyer une chaîne  
@@ -394,7 +429,7 @@ Ces méthodes permettent de transformer, nettoyer et analyser du texte facilemen
 
 ---
 
-## 🧾 Résumé
+### 🧾 Résumé
 
 - Les chaînes sont **omniprésentes** en Python (saisie utilisateur, fichiers, API…).  
 - Savoir les manipuler est essentiel pour le **traitement de texte et de données**.  
@@ -402,14 +437,15 @@ Ces méthodes permettent de transformer, nettoyer et analyser du texte facilemen
 
 ---
 
-# Section 18 : Les opérateurs
+## Section 18 : Les opérateurs
 
-## 📌 Objectif de la section
+### 📌 Objectif de la section
+
 Comprendre les différents types d’opérateurs en Python et leur rôle dans les expressions, les calculs, les comparaisons et les conditions.
 
 ---
 
-## 🔹 Les opérateurs arithmétiques
+### 🔹 Les opérateurs arithmétiques
 
 Les opérateurs arithmétiques permettent de réaliser des **calculs mathématiques de base** sur les nombres.  
 
@@ -425,7 +461,7 @@ Les opérateurs arithmétiques permettent de réaliser des **calculs mathématiq
 
 ---
 
-## 🔸 Les opérateurs de comparaison
+### 🔸 Les opérateurs de comparaison
 
 Les opérateurs de comparaison servent à **tester l’égalité ou l’ordre entre deux valeurs**.  
 
@@ -440,7 +476,7 @@ Les opérateurs de comparaison servent à **tester l’égalité ou l’ordre en
 
 ---
 
-## 🔹 Les opérateurs logiques
+### 🔹 Les opérateurs logiques
 
 Les opérateurs logiques permettent de **combiner plusieurs conditions** pour construire des expressions plus complexes.  
 
@@ -452,14 +488,16 @@ Les opérateurs logiques permettent de **combiner plusieurs conditions** pour co
 
 ---
 
-## 🧠 Concepts clés
+### Concepts clés
 
 - Les opérateurs sont essentiels pour écrire des **conditions** et des **expressions**.  
 - Ils peuvent être combinés dans des **structures complexes :**
+
 ```python
 if age >= 18 and pays == "France":
     print("Accès autorisé")
-```      
+```
+
 - L’ordre des opérations suit les règles classiques de priorité :  
   1. Parenthèses  
   2. Puissances  
@@ -468,7 +506,7 @@ if age >= 18 and pays == "France":
 
 ---
 
-## 🧪 Quiz et exercices réalisés
+### Quiz et exercices réalisés
 
 - ✅ Quiz sur les opérateurs arithmétiques  
 - ✅ Quiz sur les opérateurs logiques  
@@ -477,7 +515,7 @@ if age >= 18 and pays == "France":
 
 ---
 
-## 🧾 Résumé
+### Résumé
 
 - Les opérateurs permettent de **manipuler les données** et de **prendre des décisions**.  
 - Bien les comprendre est indispensable pour écrire des conditions **claires et efficaces**.  
@@ -485,15 +523,15 @@ if age >= 18 and pays == "France":
 
 ---
 
-# Section 19 : Le formatage des chaînes de caractères
+## Section 19 : Le formatage des chaînes de caractères
 
-## 📌 Objectif de la section
+### 📌 Objectif de la section
 
 Apprendre à insérer dynamiquement des valeurs dans des chaînes de caractères, en utilisant les différentes méthodes de formatage disponibles en Python.
 
 ---
 
-## 1. 🔤 Concaténation classique
+### 1. 🔤 Concaténation classique
 
 La concaténation consiste à **assembler plusieurs chaînes de caractères** en une seule.  
 C’est simple mais peu flexible, car elle nécessite souvent des conversions manuelles `(str())`.
@@ -507,7 +545,8 @@ print("Bonjour " + nom)
 
 ---
 
-## 2. 🧩 Méthode `.format()`
+### 2. 🧩 Méthode `.format()`
+
 La méthode `.format()` permet d’**insérer des valeurs à l’intérieur d’une chaîne** grâce à des emplacements `{}`.  
 Elle est plus puissante que la concaténation, notamment pour réorganiser les valeurs `{1}, {0}` comme dans cet exemple de code:
 
@@ -519,7 +558,7 @@ print("Je m'appelle {} et j'ai {} ans.".format(prenom, age))
 
 ---
 
-## 3. ⚡ F-strings (recommandé depuis Python 3.6)
+### 3. ⚡ F-strings (recommandé depuis Python 3.6)
 
 Les f-strings offrent une manière **moderne et lisible** d’insérer directement des variables ou des expressions dans une chaîne.  
 Elles sont à la fois **claires, rapides et performantes**, et représentent aujourd’hui la méthode la plus recommandée.
@@ -537,7 +576,7 @@ Elle permet d’insérer des expressions directement : `f"{2 + 3}"`
 
 ---
 
-## 🧠 Concepts clés
+### 🧠 Concepts clés
 
 - Le formatage est essentiel pour afficher des données de manière **propre et lisible**.  
 - Les f-strings sont aujourd’hui la méthode la plus **pratique et moderne**.  
@@ -545,7 +584,7 @@ Elle permet d’insérer des expressions directement : `f"{2 + 3}"`
 
 ---
 
-## 🧪 Quiz et exercices réalisés
+### 🧪 Quiz et exercices réalisés
 
 - ✅ Quiz sur les f-strings  
 - ✅ Quiz sur `.format()` et les emplacements  
@@ -554,7 +593,7 @@ Elle permet d’insérer des expressions directement : `f"{2 + 3}"`
 
 ---
 
-## 🧾 Résumé
+### 🧾 Résumé
 
 - Utilise les **f-strings** pour un code plus clair et moderne.  
 - Le formatage permet de **structurer l’affichage** des données.  
@@ -562,16 +601,16 @@ Elle permet d’insérer des expressions directement : `f"{2 + 3}"`
 
 ---
 
-# Section 20 : Projet #1 — La calculatrice
+## Section 20 : Projet #1 — La calculatrice
 
-## 🎯 Objectif du projet
+### 🎯 Objectif du projet
 
 Ce premier projet marque le début de la mise en pratique concrète des connaissances.  
 L’objectif est simple mais fondamental : créer une calculatrice en ligne de commande qui demande à l’utilisateur deux nombres et affiche le résultat de leur addition.
 
 ---
 
-## 🛠️ Compétences mobilisées
+### 🛠️ Compétences mobilisées
 
 - Utilisation de `input()` pour récupérer des données utilisateur  
 - Conversion des chaînes en nombres (`int()` ou `float()`)  
@@ -580,7 +619,7 @@ L’objectif est simple mais fondamental : créer une calculatrice en ligne de c
 
 ---
 
-## 💡 Pourquoi ce projet est important
+### 💡 Pourquoi ce projet est important
 
 - Il permet de **consolider les bases** : types natifs, variables, conversion, affichage.  
 - Il initie à la logique de projet : **entrée → traitement → sortie**.  
@@ -588,7 +627,7 @@ L’objectif est simple mais fondamental : créer une calculatrice en ligne de c
 
 ---
 
-## 🧪 Étapes du projet
+### 🧪 Étapes du projet
 
 1. Demander deux nombres à l’utilisateur  
 2. Convertir les entrées en entiers  
@@ -597,13 +636,14 @@ L’objectif est simple mais fondamental : créer une calculatrice en ligne de c
 
 ---
 
-## 📂 Exemple du projet
+### 📂 Exemple du projet
+
 Le code complet de la calculatrice se trouve dans le fichier :  
 [`Projet #1 — Calculatrice`](../Projets/Calculatrice.py).
 
 ---
 
-## 🧾 Résumé
+### 🧾 Résumé
 
 - Ce projet est une **première pierre** vers des applications plus complexes.  
 - Même avec peu de lignes, on peut créer un **outil utile et fonctionnel**.  
@@ -611,7 +651,7 @@ Le code complet de la calculatrice se trouve dans le fichier :
 
 ---
 
-# Section 21 : Les structures conditionnelles
+## Section 21 : Les structures conditionnelles
 
 ## 📌 Objectif de la section
 
@@ -632,7 +672,8 @@ elif autre_condition:
     # instructions si la première est fausse mais celle-ci est vraie
 else:
     # instructions si aucune condition n’est vraie
-```    
+```  
+
 ---
 
 ## 🔸 Opérateurs utilisés dans les conditions
@@ -673,7 +714,7 @@ Pour écrire des conditions, on utilise différents opérateurs :
 
 ---
 
-# Section 22 : Les erreurs que vous allez rencontrer
+## Section 22 : Les erreurs que vous allez rencontrer
 
 ## 📌 Objectif de la section
 Identifier les erreurs les plus fréquentes en Python, comprendre leur origine, et apprendre à les corriger pour progresser plus sereinement dans ton apprentissage.
@@ -686,20 +727,24 @@ Identifier les erreurs les plus fréquentes en Python, comprendre leur origine, 
 
 Elles apparaissent lorsque la structure du code est incorrecte.  
 Exemples typiques :  
+
 - Oubli du `:` après une condition ou une boucle  
 - Mauvaise indentation  
 - Parenthèses ou guillemets non fermés  
 
 Exemple:
+
 ```python
 if x == 5  # ❌ SyntaxError : missing ':'
 ```
+
 ---
 
 ### 2. 🧠 Erreurs de type (*TypeError*) 
 
 Elles surviennent lorsqu’on tente une opération entre deux types incompatibles.  
 Exemple : concaténer une chaîne avec un entier sans conversion.
+
 ```python
 print("âge : " + 25)  # ❌ TypeError : str + int
 ```
@@ -710,26 +755,29 @@ print("âge : " + 25)  # ❌ TypeError : str + int
 
 Elles se produisent lorsqu’on utilise une variable qui n’a pas été définie.  
 Exemple : appel d’un identifiant inexistant.
+
 ```python
 print(nom)  # ❌ NameError : 'nom' n’est pas défini
 ```  
 
 ---
 
-### 4. 📦 Erreurs de conversion (*ValueError*) 
+### 4. 📦 Erreurs de conversion (_ValueError_)
 
 Elles apparaissent lorsqu’une conversion de type est impossible.  
-Exemple : transformer un mot en nombre.  
+Exemple : transformer un mot en nombre.
+
 ```python
 int("abc")  # ❌ ValueError
 ```
 
 ---
 
-### 5. 📭 Erreurs d’index (*IndexError*) 
+### 5. 📭 Erreurs d’index (*IndexError*)
 
 Elles surviennent lorsqu’on tente d’accéder à une position inexistante dans une liste.  
 Exemple : demander l’élément à l’index 5 alors que la liste n’en contient que 3. 
+
 ```python
 liste = [1, 2, 3]
 print(liste[5])  # ❌ IndexError
@@ -763,7 +811,7 @@ print(liste[5])  # ❌ IndexError
 
 ---
 
-# Section 23 : Quelques modules et fonctions utiles
+## Section 23 : Quelques modules et fonctions utiles
 
 ## 📌 Objectif de la section
 
@@ -817,12 +865,14 @@ Exemples :
 ### 🧭 3. Explorer un module avec `dir()` et `help()`
 
 Les fonctions intégrées `dir()` et `help()` permettent d’**explorer les capacités d’un module ou d’un objet**.  
+
 - `dir()` liste les attributs et fonctions disponibles.  
 - `help()` affiche la documentation détaillée d’une fonction ou d’un module.  
 
 Ces outils sont très utiles pour découvrir de nouvelles bibliothèques.
 
 Exemple :
+
 - `dir(random)` → liste tous les attributs et fonctions disponibles dans le module
 
 - `help(random.randint)` → affiche la documentation de la fonction randint
@@ -842,6 +892,7 @@ Exemple :
 callable(print)  # True
 callable(42)     # False
 ```
+
 Cela nous permet de savoir si on peut utiliser les parenthèses `()` sur un objet.
 
 ---
@@ -862,7 +913,7 @@ Cela nous permet de savoir si on peut utiliser les parenthèses `()` sur un obje
 
 ---
 
-# Section 24 : Les listes
+## Section 24 : Les listes
 
 ## 📌 Objectif de la section
 
@@ -876,7 +927,8 @@ Une liste est une **séquence ordonnée et modifiable**.
 Elle peut contenir différents types de données (entiers, chaînes, booléens, flottants…).  
 Les listes peuvent aussi être imbriquées pour représenter des structures plus complexes (comme des matrices).  
 
-Exemple : 
+Exemple :
+
 ```python
 fruits = ["pomme", "banane", "cerise"]
 
@@ -919,12 +971,15 @@ Les listes possèdent de nombreuses méthodes pour faciliter leur manipulation :
 
 ## 🔸 Fonctions utiles
 
-Certaines fonctions intégrées sont très pratiques avec les listes :  
+Certaines fonctions intégrées sont très pratiques avec les listes :
+
 - `len()` → donne la longueur de la liste  
-- `list()` → crée une liste à partir d’une autre séquence. Exemple : 
+- `list()` → crée une liste à partir d’une autre séquence. Exemple :
+
 ```python
 list("abc") → ['a', 'b', 'c'] 
 ```
+
 - `in` / `not in` → testent l’appartenance d’un élément.
 
 ---
@@ -945,7 +1000,7 @@ list("abc") → ['a', 'b', 'c']
 
 ---
 
-# Section 25 : Fonctions intégrées et méthodes supplémentaires
+## Section 25 : Fonctions intégrées et méthodes supplémentaires
 
 ## 📌 Objectif de la section
 
@@ -954,6 +1009,7 @@ Découvrir et maîtriser les fonctions intégrées et méthodes les plus utilis�
 ---
 
 ## 🔹 Rappel : Méthodes vs Fonctions
+
 - **Méthode** : attachée à un objet, s’utilise avec un point.  
   Exemple : `"Python".upper()` ou `[1, 2, 3].append(4)`  
 - **Fonction** : indépendante, s’utilise directement avec des parenthèses.  
@@ -1021,6 +1077,7 @@ Syntaxe :
 for i in range(5):
     print(i)
 ```
+
 Peut être combinée avec `if, break, continue,` et `else`
 
 ---
@@ -1038,6 +1095,7 @@ while i < 5:
     print(i)
     i += 1
 ```
+
 ⚠️ Attention : un mauvais contrôle de la condition peut entraîner des **boucles infinies**.  
 
 ---
@@ -1092,7 +1150,7 @@ for i in range(5):
 
 ---
 
-# Section 27 : Exercices sur les boucles
+## Section 27 : Exercices sur les boucles
 
 ## 📌 Objectif de la section
 Mettre en pratique les boucles `for` et `while`, ainsi que les instructions `break`, `continue`, `else` et `pass`, à travers une série d’exercices progressifs.
@@ -1198,7 +1256,7 @@ Comparer deux approches : une simple avec validation par conditions, et une plus
 
 ---
 
-# Section 29 : Projet #3 — La liste de courses
+## Section 29 : Projet #3 — La liste de courses
 
 ## 🎯 Objectif du projet
 
@@ -1249,16 +1307,16 @@ Ce projet introduit la manipulation des listes, l’interaction utilisateur et l
 
 ---
 
-# Section 30 : Projet #4 — Le nombre mystère
+## Section 30 : Projet #4 — Le nombre mystère
 
-## 🎯 Objectif du projet
+ 🎯 **Objectif du projet**
 
 Créer un jeu interactif dans lequel l’ordinateur choisit un nombre aléatoire entre 1 et 100, et l’utilisateur doit le deviner en un nombre limité d’essais.  
 Ce projet est à la fois ludique et formateur, car il combine plusieurs notions clés du langage Python.
 
 ---
 
-## 🛠️ Compétences mobilisées
+🛠️ **Compétences mobilisées**
 
 - Utilisation du module `random` pour générer un nombre aléatoire  
 - Boucle `while` pour répéter les tentatives  
@@ -1269,12 +1327,12 @@ Ce projet est à la fois ludique et formateur, car il combine plusieurs notions 
 
 ---
 
-## 🧪 Fonctionnalités à implémenter
+🧪 **Fonctionnalités à implémenter**
 
 - Générer un nombre mystère entre 1 et 100  
 - Demander à l’utilisateur de deviner le nombre  
 - Comparer la réponse avec le nombre mystère  
-- Afficher un message d’aide : *trop grand* / *trop petit*  
+- Afficher un message d’aide : _trop grand_ / _trop petit_  
 - Limiter le nombre d’essais (par exemple à 10)  
 - Afficher un message de victoire ou de défaite  
 - **Bonus** : proposer de rejouer. Dans ma version, j’ai ajouté une touche personnelle permettant à l’utilisateur de continuer à jouer lorsque le nombre de tentatives est à 0 ou après une victoire, rendant ainsi le jeu plus intéressant 💡🔎😅  
@@ -1282,7 +1340,7 @@ Ce projet est à la fois ludique et formateur, car il combine plusieurs notions 
 📂 [Nombre_mystere.py](../Projets/Nombre_mystere.py)
 
 ---
-## 💡 Points forts de mon implémentation
+💡 **Points forts de mon implémentation**
 
 - L’utilisation de `time.sleep()` rend le jeu plus fluide et engageant.  
 - La validation d’entrée est bien pensée (`isdigit()`, bornes 1–100).  
@@ -1291,7 +1349,7 @@ Ce projet est à la fois ludique et formateur, car il combine plusieurs notions 
 
 ---
 
-## 🔍 Améliorations possibles
+### 🔍 Améliorations possibles
 
 Les évolutions ou améliorations possibles (difficultés, score, factorisation du code) viendront naturellement au rythme de ma progression : elles deviendront des exercices supplémentaires pour approfondir des notions comme la POO, les fichiers, ou les interfaces graphiques.
 
@@ -1303,7 +1361,7 @@ Les évolutions ou améliorations possibles (difficultés, score, factorisation 
 
 ---
 
-## 💡 Pourquoi ce projet est important
+💡 **Pourquoi ce projet est important**
 
 - Il permet de **combiner plusieurs notions** dans un seul programme concret.  
 - Il entraîne à la **logique conditionnelle** et à la **gestion des états** d’un jeu.  
@@ -1312,11 +1370,8 @@ Les évolutions ou améliorations possibles (difficultés, score, factorisation 
 
 ---
 
-## 🧾 Fiche récapitulative
+🧾 **Fiche récapitulative**
 
 - Ce projet est un excellent exercice de logique et de structuration.  
 - Il pousse à penser en termes de flux de jeu et de retours utilisateur.  
 - Il est facilement extensible : ajout de niveaux, score, rejouabilité…  
-
-
-
