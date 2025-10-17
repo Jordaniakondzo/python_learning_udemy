@@ -27,7 +27,8 @@ _Formation : Python – La Formation Complète 2025 (Thibault Houdon, Udemy)_
 - [Section 29 : Projet #3 — La liste de courses](#section-29--projet-3--la-liste-de-courses)
 - [Section 30 : Projet #4 — Le nombre mystère](#section-30--projet-4--le-nombre-mystère)
 
-- [Section 31 : … (à venir)](#section-31--)  
+- [Section 31 : Projet #5 — Créer un jeu de rôle](#section-31--projet-5--créer-un-jeu-de-rôle)
+- [Section 32 : Fin de la première partie](#section-32--fin-de-la-première-partie)
 
 ---
 
@@ -897,7 +898,7 @@ Cela nous permet de savoir si on peut utiliser les parenthèses `()` sur un obje
 
 ---
 
-## 🧠 Concepts clés
+### 🧠 Concepts clés
 
 - Les modules permettent d’**étendre les capacités de Python** sans tout réécrire soi-même.  
 - Connaître les modules les plus courants fait gagner du temps et améliore l’efficacité.  
@@ -905,7 +906,7 @@ Cela nous permet de savoir si on peut utiliser les parenthèses `()` sur un obje
 
 ---
 
-## 🧾 Résumé
+### 🧾 Résumé
 
 - Les modules sont comme des **boîtes à outils** prêtes à l’emploi.  
 - On peut les combiner pour créer des programmes plus puissants.  
@@ -915,13 +916,13 @@ Cela nous permet de savoir si on peut utiliser les parenthèses `()` sur un obje
 
 ## Section 24 : Les listes
 
-## 📌 Objectif de la section
+### 📌Objectif de la section
 
 Découvrir et maîtriser les listes en Python, qui sont des structures de données fondamentales permettant de stocker des collections d’éléments modifiables.
 
 ---
 
-## 🔹 Définition et création
+### 🔹Définition et création
 
 Une liste est une **séquence ordonnée et modifiable**.  
 Elle peut contenir différents types de données (entiers, chaînes, booléens, flottants…).  
@@ -941,7 +942,7 @@ matrice = [[1, 2], [3, 4]]
 
 ---
 
-## 🔸 Accès et modification
+### 🔸 Accès et modification
 
 - Accès par index (le premier élément commence à l’index 0) : `fruits[0] → "pomme"`.  
 - Modification d’un élément à une position donnée : `fruits[1] = "kiwi"`.  
@@ -949,7 +950,7 @@ matrice = [[1, 2], [3, 4]]
 
 ---
 
-## 🔹 Méthodes utiles
+### 🔹 Méthodes utiles
 
 Les listes possèdent de nombreuses méthodes pour faciliter leur manipulation :  
 
@@ -969,7 +970,7 @@ Les listes possèdent de nombreuses méthodes pour faciliter leur manipulation :
 
 ---
 
-## 🔸 Fonctions utiles
+### 🔸 Fonctions utiles
 
 Certaines fonctions intégrées sont très pratiques avec les listes :
 
@@ -984,7 +985,7 @@ list("abc") → ['a', 'b', 'c']
 
 ---
 
-## 🧠 Concepts clés
+### 🧠 Concepts clés
 
 - Les listes sont **mutables**, donc leur contenu peut être modifié.  
 - Elles sont très utilisées pour gérer des données dynamiques.  
@@ -992,7 +993,7 @@ list("abc") → ['a', 'b', 'c']
 
 ---
 
-## 🧾 Résumé
+### 🧾 Résumé
 
 - Les listes sont des **outils puissants** pour organiser et stocker des données.  
 - Elles sont omniprésentes dans les projets Python.  
@@ -1002,13 +1003,13 @@ list("abc") → ['a', 'b', 'c']
 
 ## Section 25 : Fonctions intégrées et méthodes supplémentaires
 
-## 📌 Objectif de la section
+### 📌 Objectif de la section
 
 Découvrir et maîtriser les fonctions intégrées et méthodes les plus utilisées en Python, afin d’optimiser l’écriture et la lecture du code.
 
 ---
 
-## 🔹 Rappel : Méthodes vs Fonctions
+### 🔹 Rappel : Méthodes vs Fonctions
 
 - **Méthode** : attachée à un objet, s’utilise avec un point.  
   Exemple : `"Python".upper()` ou `[1, 2, 3].append(4)`  
@@ -1017,7 +1018,7 @@ Découvrir et maîtriser les fonctions intégrées et méthodes les plus utilis�
 
 ---
 
-## 🔸 Fonctions intégrées utiles
+### 🔸 Fonctions intégrées utiles
 
 Voici quelques fonctions intégrées incontournables :  
 
@@ -1133,7 +1134,7 @@ for i in range(5):
 
 ---
 
-## 🧠 Concepts clés
+## 🧠Concepts clés
 
 - Les boucles permettent d’**automatiser des tâches répétitives**.  
 - `for` convient lorsque le nombre d’itérations est déterminé.  
@@ -1142,7 +1143,7 @@ for i in range(5):
 
 ---
 
-## 🧾 Résumé
+## 🧾Résumé
 
 - Les boucles sont **indispensables** pour parcourir des données et automatiser des actions.  
 - Leur contrôle permet d’écrire un code **plus intelligent et plus fluide**.  
@@ -1163,7 +1164,7 @@ Mettre en pratique les boucles `for` et `while`, ainsi que les instructions `bre
   📂 [Afficher_dix_utilisateurs.py](../Exercices/Exercices_boucles/Afficher_dix_utilisateurs.py)  
 
 - ✅ Exercice 7 : Afficher un mot à l’envers  
-  📂 [Inverse_de_mot.py](../Exercices/Exercices_boucles/Inverse_de_mot.py)   
+  📂 [Inverse_de_mot.py](../Exercices/Exercices_boucles/Inverse_de_mot.py)
 
 - ✅ Exercice de codage 24 : Afficher la table de multiplication d’un nombre  
   📂 [Table_de_multiplication.py](../Exercices/Exercices_boucles/Table_de_multiplication.py)  
@@ -1374,4 +1375,182 @@ Les évolutions ou améliorations possibles (difficultés, score, factorisation 
 
 - Ce projet est un excellent exercice de logique et de structuration.  
 - Il pousse à penser en termes de flux de jeu et de retours utilisateur.  
-- Il est facilement extensible : ajout de niveaux, score, rejouabilité…  
+- Il est facilement extensible : ajout de niveaux, score, rejouabilité…
+
+---
+
+## Section 31 : Projet #5 — Créer un jeu de rôle
+
+## 🎯 Objectif du projet
+
+Créer un jeu de rôle textuel dans le terminal, où le joueur affronte un ennemi dans un **combat au tour par tour**.  
+Ce projet introduit la **gestion d’état**, les **interactions complexes** et la **logique de jeu dynamique**.
+
+---
+
+## 🛠️ Règles du jeu
+
+- Le joueur et l’ennemi commencent avec **50 points de vie**.  
+- Le joueur dispose de **3 potions de soin** :  
+  - Chaque potion rend entre **15 et 50 PV** (valeur aléatoire).  
+  - L’ennemi n’a pas de potion.  
+  - Utiliser une potion **fait passer le tour** du joueur.  
+- Les attaques infligent :  
+  - **5 à 10 PV de dégâts** pour le joueur,  
+  - **5 à 15 PV** pour l’ennemi.  
+- À chaque tour :  
+  - Le joueur choisit entre **attaquer (1)**, **utiliser une potion (2)** ou **quitter (3)**.  
+  - Si l’ennemi est encore en vie après l’action du joueur, il attaque.  
+  - Si le joueur n’a plus de potions, il doit attaquer.  
+- Le jeu se termine :  
+  - Si l’ennemi tombe à 0 PV → **victoire du joueur 🎉**  
+  - Si le joueur tombe à 0 PV → **défaite ☠️**
+
+📂 [Jeu_de_role.py](../Projets/Jeu_de_role.py)
+
+---
+
+## 🔸 Étapes d’implémentation
+
+1. Initialiser les points de vie et le nombre de potions.  
+2. Créer une boucle principale qui tourne **tant que les deux personnages sont en vie**.  
+3. Afficher un menu à chaque tour et récupérer le choix du joueur.  
+4. Gérer les effets de l’attaque ou de la potion.  
+5. Faire attaquer l’ennemi si celui-ci est encore en vie.  
+6. Afficher les PV restants après chaque action.  
+7. Terminer le jeu avec un message adapté selon le résultat.  
+
+---
+
+## 💡 Points forts de mon implémentation
+
+- **Fluidité et immersion** grâce à l’utilisation de `time.sleep()` entre les actions.  
+- **Bonne gestion des conditions** (attaques, potions, choix invalides, etc.).  
+- **Détails logiques soignés** :  
+  - Le joueur ne peut pas dépasser 50 PV.  
+  - L’ennemi inflige **le double des dégâts** si le joueur boit une potion.  
+- **Structure claire et intuitive**, idéale pour un premier moteur de jeu textuel.
+
+---
+
+## 🔍 Améliorations possibles (selon progression)
+
+Les évolutions viendront naturellement au fil de mon apprentissage. Elles pourront servir de base pour explorer de nouvelles notions comme la **POO**, les **fichiers** ou la **gestion d’événements**.
+
+- **Refactorisation avec des fonctions** : séparer les actions (`attaquer()`, `utiliser_potion()`, `tour_ennemi()`) pour plus de lisibilité.  
+- **Ajout de niveaux de difficulté** : plus de dégâts ennemis ou moins de potions.  
+- **Système de score** : nombre de tours pour vaincre l’ennemi, meilleur score sauvegardé.  
+- **Interface graphique** : adapter le jeu avec Tkinter ou une interface console enrichie (ex : `rich`).  
+- **Gestion des exceptions** : renforcer la robustesse du jeu (erreurs d’entrée, saisies invalides).  
+- **Tests unitaires** : tester les fonctions (par ex. génération de dégâts, consommation de potion).  
+
+---
+
+## 💡 Concepts clés
+
+- Utilisation du module `random` pour générer les **dégâts et soins**.  
+- **Boucle `while`** avec plusieurs conditions et interactions utilisateur.  
+- Gestion d’état par des **variables persistantes**.  
+- **Affichage dynamique et immersif** avec `print()` et `time.sleep()`.  
+- Structure logique de jeu et **contrôle du flux d’exécution**.  
+
+---
+
+## 🧾 Résumé
+
+Ce projet constitue une étape clé dans mon apprentissage : il synthétise les boucles, conditions, entrées utilisateur et gestion aléatoire.  
+Il m’a permis de **penser en termes de gameplay**, de structure logique, et d’**expérience utilisateur**.  
+Ce type de projet est une excellente base pour passer vers des jeux plus complexes et mieux structurés.
+
+---
+
+## Section 32 : Fin de la première partie
+
+## 🎯 Objectif de la section
+
+Clore la première partie de la formation en réalisant un **bilan de compétences**, un **résumé des acquis**, et un **examen pratique** permettant de valider la compréhension globale des bases du langage Python.  
+
+---
+
+## 🧾 Résumé de la première partie
+
+Cette première partie a permis d’acquérir les fondations solides du langage Python à travers des notions essentielles :  
+
+- Les **types natifs** (`int`, `str`, `float`, `bool`)  
+- La **manipulation de chaînes de caractères** et le **formatage dynamique** (`f-string`, `format()`)  
+- La **gestion des variables** et des **conversions de type**  
+- Les **structures conditionnelles** (`if`, `elif`, `else`)  
+- Les **opérateurs mathématiques, logiques et de comparaison**  
+- Les **boucles** (`for`, `while`) et leur rôle dans l’automatisation  
+- Les **listes** et leurs méthodes fondamentales (`append`, `remove`, `extend`, etc.)  
+- L’**interaction utilisateur** avec la fonction `input()`  
+- La **gestion des erreurs** simples et la logique de débogage  
+
+👉 Ces connaissances forment le **socle du développement Python**, sur lequel reposent les projets réalisés (calculatrice, liste de courses, jeu du nombre mystère, jeu de rôle, etc.).
+
+---
+
+## 📊 Bilan de compétence
+
+> D’après le document “Bilan_de_competences_partie_01.pdf”, toutes les compétences principales de cette première partie sont validées.  
+> Chaque notion peut être cochée comme acquise après la pratique et les projets.  
+
+**Domaines validés :**  
+
+- [x] Types natifs et conversions  
+- [x] Manipulation des chaînes  
+- [x] Variables et conventions de nommage  
+- [x] Opérateurs et formatage  
+- [x] Structures conditionnelles  
+- [x] Listes et boucles  
+- [x] Interaction avec l’utilisateur  
+- [x] Gestion des erreurs simples  
+
+---
+
+## 🧪 Examen pratique — Mode entraînement
+
+L’examen pratique de la première partie (80 questions, durée : 1 h 30) a permis de mettre en application l’ensemble des concepts étudiés.  
+
+**Résultats du mode entraînement :**
+
+- ✅ Score : **96 % (77/80)**  
+- 📅 Date : 16 octobre 2025  
+- 🎯 Taux minimal requis : 75 %  
+- 🌟 Tous les domaines (variables, fonctions, listes, boucles, structures, erreurs, etc.) ont été validés à plus de 90 %.
+
+👉 L’examen en **mode officiel (examen)** reste à effectuer prochainement pour finaliser cette partie.
+
+---
+
+## 💭 Réflexions et motivation
+
+La section inclut également un rappel important sur la **motivation à coder** et l’**effet Dunning-Kruger**, ce moment où l’on croit tout savoir avant de réaliser la profondeur réelle du domaine.  
+> Le message essentiel : **la persévérance prime sur le découragement.**  
+> Le codage est un apprentissage continu ; reconnaître ses limites est une étape vers la maîtrise.
+
+---
+
+## 🧠 Bilan personnel
+
+> “Apprendre Python, ce n’est pas juste apprendre à écrire du code, mais à raisonner, à structurer et à résoudre des problèmes.”  
+
+Cette première partie m’a permis de :
+
+- Poser les **bases solides** du raisonnement algorithmique,  
+- Développer mes premiers **réflexes de programmation**,  
+- Créer mes premiers **projets complets et fonctionnels**,  
+- Renforcer ma motivation à poursuivre vers des thématiques plus avancées (fonctions, fichiers, POO…).  
+
+---
+
+## 🏁 Conclusion
+
+Cette première partie se clôt avec succès :
+
+- [x] **Compétences acquises**  
+- [x] **Projets terminés**  
+- [x] **Examen d’entraînement validé**  
+
+La suite de la formation portera sur des concepts plus avancés et une structuration plus modulaire du code.  
+> 💪 _“Les fondations sont posées, le reste n’est plus qu’une question de pratique et de persévérance.”_
