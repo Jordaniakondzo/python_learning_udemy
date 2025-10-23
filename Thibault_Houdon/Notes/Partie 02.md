@@ -169,11 +169,15 @@ L’ajout de données dans un fichier `JSON` implique de charger les données ex
 
 ## 🧾 Résumé
 
-Cette section nous enseigne à :
+Cette section constitue un pivot essentiel de l’apprentissage Python :
+elle introduit la persistance des données, indispensable pour toute application réelle.
 
-- Créer et manipuler des fichiers texte et JSON  
-- Comprendre les modes d’ouverture et leur comportement  
-- Stocker et récupérer des données de manière persistante  
-- Gérer les erreurs liées à la lecture et l’écriture de fichiers  
+Grâce à la lecture et à l’écriture dans les fichiers texte et JSON, on peut désormais :
+
+- sauvegarder les résultats d’un programme,
+- stocker des informations entre plusieurs exécutions,
+- et manipuler des structures de données complexes.
+
+>💡 Cette étape prépare directement aux prochaines sections consacrées à la structuration du code, la gestion d’erreurs avancée, et l’intégration avec des bases de données.
 
 ---
