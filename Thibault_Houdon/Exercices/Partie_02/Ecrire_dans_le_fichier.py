@@ -1,6 +1,6 @@
 # Ecrire dans un fichier texte
 # Ce programme écrit plusieurs lignes de texte dans un fichier.
-chemin = r"C:\Users\User\Documents\GitHub\python_learning_udemy\Thibault_Houdon\Exercices\Partie 02\Texte.txt"
+chemin = r"C:\Users\User\Documents\GitHub\python_learning_udemy\Thibault_Houdon\Exercices\Partie_02\Texte.txt"
 # Ouvrir le fichier en mode écriture avec encodage UTF-8 pour gérer les caractères spéciaux.
 # Ici avec "w", le fichier sera créé s'il n'existe pas ou écrasé s'il existe déjà.
 with open(chemin, "w", encoding="utf-8") as fichier:

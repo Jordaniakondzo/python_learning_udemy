@@ -2,7 +2,7 @@
 import json
 
 # Chemin du fichier JSON
-fichier_json = r"C:\Users\User\Documents\GitHub\python_learning_udemy\Thibault_Houdon\Exercices\Partie 02\fichier.json"
+fichier_json = r"C:\Users\User\Documents\GitHub\python_learning_udemy\Thibault_Houdon\Exercices\Partie_02\fichier.json"
 
 # On ouvre d'abord le fichier en mode lecture pour charger les données existantes.
 # fichier_json ici est le chemin vers le fichier JSON et f est l'objet du fichier contenu dans la variable data.

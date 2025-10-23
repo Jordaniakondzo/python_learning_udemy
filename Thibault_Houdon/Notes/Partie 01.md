@@ -1249,7 +1249,7 @@ Comparer deux approches : une simple avec validation par conditions, et une plus
 
 ---
 
-## 🧾 Résumé
+## 🗒️ Résumé
 
 - La validation par conditions permet de filtrer les erreurs simples.  
 - La gestion des exceptions avec `try/except` rend le programme **plus professionnel**.  
@@ -1300,7 +1300,7 @@ Ce projet introduit la manipulation des listes, l’interaction utilisateur et l
 
 ---
 
-## 🧾 Résumé
+## 🗒️ Résumé
 
 - Ce projet synthétise les acquis : **listes, boucles, conditions, fonctions, input() et print()**.  
 - Il aide à **structurer ton code** pour le rendre lisible et maintenable.  

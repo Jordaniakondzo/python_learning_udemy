@@ -7,6 +7,7 @@
 - [📚 Ce que cette partie va apporter](#-ce-que-cette-partie-va-apporter)
 - [🧠 État d’esprit pour cette partie](#-état-desprit-pour-cette-partie)
 - [Section 34 : Les fichiers](#section-34--les-fichiers)
+- [Section 35 : Projet #6 — Liste de courses avec sauvegarde](#section-35--projet-6--liste-de-courses-avec-sauvegarde)
 
 ---
 
@@ -150,7 +151,7 @@ L’ajout de données dans un fichier `JSON` implique de charger les données ex
 - Ajouter la nouvelle donnée avec une méthode spécifique  
 - Réécrire le fichier complet avec `json.dump()`  
 
-📂 Exemple pratique : [Ajout_donnees_fichier_Json.py](../Partie%2002/Ajout_donnees_fichier_Json.py)
+📂 Exemple pratique : [Ajout_donnees_fichier_Json.py](../Partie_02/Ajout_donnees_fichier_Json.py)
 
 ---
 
@@ -181,3 +182,127 @@ Grâce à la lecture et à l’écriture dans les fichiers texte et JSON, on peu
 >💡 Cette étape prépare directement aux prochaines sections consacrées à la structuration du code, la gestion d’erreurs avancée, et l’intégration avec des bases de données.
 
 ---
+
+## Section 35 : Projet #6 — Liste de courses avec sauvegarde
+
+## 🎯 Objectif du projet
+
+Améliorer le projet précédent **“Liste de courses”** en ajoutant une **sauvegarde automatique dans un fichier JSON**.  
+L’objectif est de rendre le programme **persistant entre les sessions**, c’est-à-dire que la liste reste disponible même après la fermeture du script.
+
+---
+
+## 🛠️ Compétences mobilisées
+
+- Utilisation du module **`json`** pour la sérialisation (écriture) et désérialisation (lecture) de données.  
+- Utilisation du module **`os`** pour vérifier l’existence du fichier.  
+- Gestion de l’encodage avec `utf-8`.  
+- Structure logique du programme avec une **boucle principale** et un **menu utilisateur**.  
+- Sauvegarde automatique à la sortie du programme.  
+- Utilisation de **`sys.exit()`** pour une sortie propre.  
+
+---
+
+## 🧪 Fonctionnalités implémentées
+
+1. **Chargement initial de la liste :**  
+   - Si le fichier `liste_de_courses.json` existe, le programme le lit et charge les données.  
+   - Sinon, il crée une liste vide.
+
+2. **Ajout d’un élément :**  
+   - L’utilisateur saisit un article à ajouter à la liste.  
+   - L’élément est ajouté, et une confirmation est affichée.
+
+3. **Suppression d’un élément :**  
+   - Vérifie si l’élément existe dans la liste.  
+   - Gère le cas d’une liste vide ou d’un élément inexistant.  
+   - Affiche la liste mise à jour avec les indices.
+
+4. **Affichage de la liste actuelle :**  
+   - Affiche les éléments avec leur index.  
+   - Indique clairement si la liste est vide.
+
+5. **Vidage de la liste :**  
+   - Supprime tous les éléments avec `clear()`.  
+   - Affiche un message de confirmation.
+
+6. **Sauvegarde automatique et sortie :**  
+   - Avant de quitter (`option 5`), le programme enregistre la liste actuelle dans `liste_de_courses.json`.  
+   - Les données sont stockées au format lisible avec `indent=4` et `ensure_ascii=False`.
+
+📂 [Liste_de_courses_avec_sauvegarde.py](../Projets/Liste_de_courses_avec_sauvegarde.py)
+
+---
+
+## 🔹 Structure recommandée du code
+
+```python
+import json, os, sys
+
+# 1. Définir le chemin du fichier
+# 2. Charger les données existantes
+# 3. Boucle principale : menu et choix utilisateur
+# 4. Fonctions internes pour chaque action (ajout, suppression, affichage, vidage)
+# 5. Sauvegarde automatique avant de quitter
+```
+
+Cette structure prépare le terrain pour une future refactorisation en fonctions ou classes, rendant le code plus modulaire.
+
+---
+
+## 💡 Points forts de mon implémentation
+
+- ✅ Persistance des données : la liste est conservée d’une exécution à l’autre.
+- ✅ Utilisation du module json pour un format standard, lisible et portable.
+- ✅ Gestion des erreurs élémentaires (fichier absent, saisie invalide).
+- ✅ Structure claire et cohérente du menu.
+- ✅ Lisibilité du code : indentations propres, messages explicites, séparateurs visuels (`"_" * 50`).
+
+---
+
+## 🔍 Améliorations possibles (selon progression)
+
+Les évolutions suivantes serviront de support pour approfondir les notions de modularité et de conception logicielle :
+
+- Refactorisation fonctionnelle :
+Extraire les actions (`ajouter_article, supprimer_article, sauvegarder_liste, etc`) dans des fonctions séparées.
+- Gestion d’erreurs avancée :
+Ajouter un `try/except` autour de la lecture/écriture JSON pour éviter les plantages si le fichier est corrompu.
+- Chemin relatif :
+Utiliser `os.path.join()` pour rendre le programme portable sur tous les systèmes d’exploitation.
+- Refactorisation en **POO** :
+Transformer le programme en une classe `ListeDeCourses`, avec méthodes et attribut
+
+---
+
+## 💡 Pourquoi ce projet est important
+
+Ce projet introduit la notion de persistance : les données sauvegardées permettent au programme de conserver son état.
+
+C’est un premier pas vers des applications réelles qui ne se “réinitialisent” pas à chaque exécution.
+
+Il consolide aussi les notions de :
+
+- lecture et écriture de fichiers,
+- validation d’entrées,
+- organisation du code,
+- manipulation de données JSON.
+
+---
+
+## 🗒️ Résumé
+
+Ce projet marque une étape clé dans notre progression.  
+Il nous a permis de transformer une simple application interactive en un **programme réellement persistant et structuré**, capable de sauvegarder et de restaurer des données.  
+
+En le réalisant, on a pu :
+
+- renforcer notre compréhension de la **manipulation de fichiers** et du format **JSON**,  
+- apprendre à **séparer la logique du code** pour plus de clarté,  
+- découvrir l’importance de la **gestion des erreurs** et de la **préparation des données**,  
+- et surtout, comprendre la différence entre **un script qui s’exécute** et **un programme qui vit dans le temps**.  
+
+La fluidité du menu, la clarté des messages et la sauvegarde automatique rendent le programme agréable à utiliser, tout en introduisant des concepts professionnels comme la persistance, la validation et la modularité.  
+
+👉 En somme, ce projet a consolidé nos compétences fondamentales en Python et posé les bases de ce que sera la suite de notre apprentissage :  
+une approche orientée **structuration, réutilisation et fiabilité du code**.  

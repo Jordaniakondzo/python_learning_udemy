@@ -2,7 +2,7 @@
 import json
 
 # Chemin du fichier JSON
-fichier_json = r"C:\Users\User\Documents\GitHub\python_learning_udemy\Thibault_Houdon\Exercices\Partie 02\fichier.json"
+fichier_json = r"C:\Users\User\Documents\GitHub\python_learning_udemy\Thibault_Houdon\Exercices\Partie_02\fichier.json"
 
 # Données à écrire dans le fichier JSON
 json_data = {
