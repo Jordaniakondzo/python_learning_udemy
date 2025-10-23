@@ -1,0 +1,4 @@
+Ceci est une ligne écrite dans le fichier.
+Voici une autre ligne avec des caractères spéciaux : é, è, à, ü, ñ.
+Fin du fichier.
+Cette ligne a été ajoutée à la fin du fichier.
