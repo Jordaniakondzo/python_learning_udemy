@@ -306,3 +306,207 @@ La fluidité du menu, la clarté des messages et la sauvegarde automatique rende
 
 👉 En somme, ce projet a consolidé nos compétences fondamentales en Python et posé les bases de ce que sera la suite de notre apprentissage :  
 une approche orientée **structuration, réutilisation et fiabilité du code**.  
+
+---
+
+## Section 36 : Gérer les chemins de fichiers avec Pathlib
+
+## 📌Objectif de la section
+
+Apprendre à manipuler les **chemins de fichiers et de dossiers** de manière moderne, portable et sécurisée grâce au module `pathlib`.  
+Ce module, intégré nativement à Python, **remplace avantageusement** les anciennes fonctions du module `os` en offrant une interface **orientée objet** et **multiplateforme**.
+
+---
+
+## 🔹 Pourquoi utiliser Pathlib ?
+
+- ✅ Plus **lisible** et **intuitif** que `os.path`  
+- ✅ Compatible avec **tous les systèmes** (Windows, macOS, Linux)  
+- ✅ Permet de **manipuler les chemins comme des objets** (`Path`)  
+- ✅ Offre des **méthodes intégrées** pour lire, écrire, créer et supprimer des fichiers assez facilement.
+
+---
+
+**🔸Créer un chemin:**
+
+```python
+from pathlib import Path
+
+chemin = Path("dossier/fichier.txt")
+```
+
+`Path()` crée un objet chemin, qui peut représenter un fichier ou un dossier.
+L’opérateur `/` permet de concaténer des segments, même sous Windows :
+
+```python
+dossier = Path("dossier")
+fichier = dossier / "fichier.txt"
+```
+
+**🔸Obtenir des informations sur un chemin:**
+
+```python
+chemin.name       # Nom du fichier (ex : "fichier.txt")
+chemin.stem       # Nom sans extension (ex : "fichier")
+chemin.suffix     # Extension (ex : ".txt")
+chemin.parent     # Dossier parent
+chemin.exists()   # True si le chemin existe
+chemin.is_file()  # True si c’est un fichier
+chemin.is_dir()   # True si c’est un dossier
+```
+
+💡 Ces méthodes permettent d’écrire un code plus robuste, capable de vérifier l’existence d’un fichier avant de le manipuler.
+
+**🔸Créer et supprimer des dossiers:**
+
+```python
+chemin.mkdir(parents=True, exist_ok=True)  # crée le dossier et ses parents
+chemin.rmdir()                             # supprime un dossier vide
+```
+
+Pour supprimer un dossier non vide, on peut utiliser `shutil.rmtree()` en important la bibliothèque `shutil`.
+
+**🔸 Lire et écrire un fichier avec Pathlib:**
+
+```python
+chemin.write_text("Bonjour Jordani !", encoding="utf-8")  # Écrit du texte
+contenu = chemin.read_text(encoding="utf-8")              # Lit le contenu
+
+```
+
+Ces méthodes remplacent avantageusement le couple `open()/close()` ; elles simplifient la manipulation des fichiers texte.
+
+**🔸 Scanner un dossier:**
+
+```python
+for fichier in Path("dossier").iterdir():
+    print(fichier.name)
+```
+
+- `iterdir()` liste tous les éléments d’un répertoire (fichiers et sous-dossiers).
+
+- `glob("*.txt")` et `rglob("*.py")` permettent de filtrer les fichiers selon un motif.
+
+---
+
+**🔹 Gestion avancée et pratiques personnelles:**
+
+**📂 Fichier :** [Gestion des chemins de fichiers avec Pathlib](../Exercices/Partie_02/GesChFichier_avec_Pathlib.py)
+
+Cette section nous a permis d’expérimenter :
+
+- la création dynamique de fichiers et dossiers avec `mkdir()` et `touch()` ;
+
+- la lecture et écriture directe via `read_text()` et `write_text()` ;
+
+- la suppression sélective de fichiers `(unlink())` ;
+
+- la navigation dans l’arborescence avec `parent`, `cwd()` et `resolve`() ;
+
+- la recherche par motif à l’aide de `glob()` et `rglob()` ;
+
+- et l’utilisation complémentaire du module `shutil` pour les opérations de nettoyage.
+
+Ces manipulations ont renforcé notre compréhension de la structure du système de fichiers et des chemins relatifs/absolus.
+
+---
+
+**🔹 Mini-projet : Trier les fichiers selon leur extension:**
+
+**📂 Fichier :** [Trier les fichiers selon leur extension](../Exercices/Partie_02/Trier_fichiers_selon_extension.py)
+
+**🎯 Objectif:**
+
+Créer un script capable de trier automatiquement les fichiers de mon dossier _Downloads_ (et de _Telegram Desktop_) selon leur extension.
+
+**⚙️ Fonctionnement général:**
+
+1. Détection du dossier utilisateur via `Path.home() / "Downloads"`.
+
+2. Parcours de tous les fichiers avec `iterdir()`.
+
+3. Classification selon l’extension à l’aide d’un dictionnaire `(extension_folders)`.
+
+4. Création automatique des dossiers cibles `(mkdir(parents=True, exist_ok=True))`.
+
+5. Déplacement des fichiers avec `shutil.move()`.
+
+6. Gestion d’un dossier spécial `“Telegram Desktop”`.
+
+7. Catégorisation des fichiers inconnus dans un dossier `“Autres”` ou `“Logiciels”`.
+
+---
+
+**💡 Analyse personnelle:**
+
+Ce mini-projet a concrètement démontré la puissance de `pathlib` pour l’automatisation de tâches système.
+Il m’a appris à :
+
+- travailler avec des chemins dynamiques et relatifs ;
+
+- manipuler des structures de données;
+
+- gérer les erreurs de fichiers inexistants ;
+
+- et produire un script réellement utile dans mon environnement quotidien.
+
+---
+
+**🔍 Améliorations possibles:**
+
+- Ajouter un **journal (log)** des fichiers déplacés avec le module `logging`.
+
+- Créer une **fonction principale `trier_fichiers()`** pour modulariser le script.
+
+- Gérer les **doublons** en renommant automatiquement les fichiers existants.
+
+- Intégrer une **interface utilisateur `(CLI ou GUI)`** pour choisir le dossier à trier.
+
+- Étendre le projet à la **sauvegarde automatique** ou au **nettoyage programmé**.
+
+---
+
+## 🧠Concepts clés
+
+- `Path` introduit une approche orientée objet de la gestion des chemins.
+
+- Les méthodes intégrées (`exists, write_text, iterdir`, etc.) simplifient et fiabilisent le code.
+
+- La portabilité est garantie sans se soucier du séparateur (`/` ou `\`).
+
+- `pathlib` s’intègre naturellement avec d’autres modules comme `json` et `shutil`.
+
+- C’est un **outil incontournable** pour tout développeur manipulant des fichiers.
+
+---
+
+## 💡 Pourquoi cette section est importante
+
+Cette section marque le passage d’une simple manipulation de fichiers à une véritable automatisation logicielle.
+Elle combine théorie et pratique en reliant :
+
+- la gestion d’arborescences,
+
+- la manipulation d’objets `Path`,
+
+- et la logique d’organisation de données réelles sur le système.
+
+C’est une étape clé pour comprendre comment Python interagit avec le système d’exploitation et préparer la suite : la **modularisation**, la **POO**, et la **création d’outils complets**.
+
+---
+
+## 🧾Résumé
+
+Ce module nous a permis de :
+
+- maîtriser la bibliothèque `pathlib` et ses avantages sur `os` ;
+
+- automatiser une tâche réelle (tri des fichiers de _Downloads_) ;
+
+- écrire un code plus lisible, maintenable et multiplateforme ;
+
+- comprendre la structure et la navigation dans le système de fichiers ;
+
+- et renforcer notre capacité à créer des **scripts utiles et intelligents**.
+
+👉 En résumé, cette section nous a fait passer du simple `“manipulateur de fichiers”` au **développeur capable d’automatiser son environnement**.
