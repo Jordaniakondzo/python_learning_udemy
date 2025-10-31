@@ -8,6 +8,7 @@
 - [🧠 État d’esprit pour cette partie](#-état-desprit-pour-cette-partie)
 - [Section 34 : Les fichiers](#section-34--les-fichiers)
 - [Section 35 : Projet #6 — Liste de courses avec sauvegarde](#section-35--projet-6--liste-de-courses-avec-sauvegarde)
+- [Section 36 : Gérer les chemins de fichiers avec Pathlib](#section-36--gérer-les-chemins-de-fichiers-avec-pathlib)
 
 ---
 
@@ -364,6 +365,12 @@ chemin.mkdir(parents=True, exist_ok=True)  # crée le dossier et ses parents
 chemin.rmdir()                             # supprime un dossier vide
 ```
 
+💡 `mkdir()` crée le dossier spécifié ; les paramètres :
+
+- `parents=True` -> crée aussi les dossiers parents manquants ;
+
+- `exist_ok=True` -> évite les erreurs si le dossier existe déjà.
+
 Pour supprimer un dossier non vide, on peut utiliser `shutil.rmtree()` en important la bibliothèque `shutil`.
 
 **🔸 Lire et écrire un fichier avec Pathlib:**
@@ -374,7 +381,9 @@ contenu = chemin.read_text(encoding="utf-8")              # Lit le contenu
 
 ```
 
-Ces méthodes remplacent avantageusement le couple `open()/close()` ; elles simplifient la manipulation des fichiers texte.
+- ➡️ Les méthodes `.write_text()` et `.read_text()` simplifient énormément la manipulation de fichiers texte.
+
+- Ces méthodes remplacent avantageusement le couple `open()/close()` ; elles simplifient la manipulation des fichiers texte.
 
 **🔸 Scanner un dossier:**
 
@@ -460,9 +469,15 @@ Il m’a appris à :
 
 - Gérer les **doublons** en renommant automatiquement les fichiers existants.
 
-- Intégrer une **interface utilisateur `(CLI ou GUI)`** pour choisir le dossier à trier.
+- Ajouter une **gestion d’erreurs avancée (`try/except`)** autour des déplacements.
 
-- Étendre le projet à la **sauvegarde automatique** ou au **nettoyage programmé**.
+- Créer une **interface graphique (`Tkinter`)** pour sélectionner le dossier à trier.
+
+- Paramétrer les extensions via un **fichier JSON externe**.
+
+- Sauvegarder un **rapport de tri** (ex. : nombre de fichiers déplacés, tailles cumulées).
+
+- Étendre le projet à la **sauvegarde automatique** ou au **nettoyage programmé** (planifier le script via `cron` ou `task scheduler` pour un tri automatique quotidien).
 
 ---
 
@@ -470,11 +485,23 @@ Il m’a appris à :
 
 - `Path` introduit une approche orientée objet de la gestion des chemins.
 
-- Les méthodes intégrées (`exists, write_text, iterdir`, etc.) simplifient et fiabilisent le code.
-
 - La portabilité est garantie sans se soucier du séparateur (`/` ou `\`).
 
 - `pathlib` s’intègre naturellement avec d’autres modules comme `json` et `shutil`.
+
+- Méthodes essentielles :
+
+  - `exists(), is_file(), is_dir()` ➡️ vérification.
+
+  - `mkdir(), rmdir()` ➡️ création / suppression de dossiers.
+
+  - `write_text(), read_text()` ➡️ manipulation de fichiers texte.
+
+  - `iterdir(), glob(), rglob()` ➡️ navigation et filtrage.
+
+Ces simplifient et fiabilisent le code.
+
+- `shutil` reste utile pour supprimer récursivement ou déplacer des éléments.
 
 - C’est un **outil incontournable** pour tout développeur manipulant des fichiers.
 
