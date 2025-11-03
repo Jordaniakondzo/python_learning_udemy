@@ -1,4 +1,7 @@
-# Trier les fichiers selon leur extension dans le dossier Downloads avec la bibliothèque pathlib.
+# 1. Trier les fichiers selon leur extension dans le dossier Downloads avec la bibliothèque pathlib.
+# 2. Gérer spécifiquement les fichiers du dossier "Telegram Desktop" dans Downloads.
+# On utilise les modules pathlib et shutil pour manipuler les chemins de fichiers et déplacer les fichiers.
+
 from pathlib import Path
 import shutil
 

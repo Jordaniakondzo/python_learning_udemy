@@ -9,6 +9,11 @@
 - [Section 34 : Les fichiers](#section-34--les-fichiers)
 - [Section 35 : Projet #6 — Liste de courses avec sauvegarde](#section-35--projet-6--liste-de-courses-avec-sauvegarde)
 - [Section 36 : Gérer les chemins de fichiers avec Pathlib](#section-36--gérer-les-chemins-de-fichiers-avec-pathlib)
+- [Section 37 : Les dictionnaires](#section-37--les-dictionnaires)
+- [Section 38 : Projet #7 — Le trieur de fichiers](#section-38--projet-7--le-trieur-de-fichiers)
+- [Section 39 : Projet #8 — Le créateur de dossiers](#section-39--projet-8--le-créateur-de-dossiers)
+- [Section 40 : Projet #9 — Organiser des données](#section-40--projet-9--organiser-des-données)
+- [Section 41 : Gestion des erreurs avec les exceptions](#section-41--gestion-des-erreurs-avec-les-exceptions)
 
 ---
 
@@ -422,7 +427,7 @@ Ces manipulations ont renforcé notre compréhension de la structure du système
 
 **🔹 Mini-projet : Trier les fichiers selon leur extension:**
 
-**📂 Fichier :** [Trier les fichiers selon leur extension](../Exercices/Partie_02/Trier_fichiers_selon_extension.py)
+**📂 Fichier :** [Trier les fichiers selon leur extension](../Projets/Trier_fichiers_selon_extension.py)
 
 **🎯 Objectif:**
 
@@ -537,3 +542,753 @@ Ce module nous a permis de :
 - et renforcer notre capacité à créer des **scripts utiles et intelligents**.
 
 👉 En résumé, cette section nous a fait passer du simple `“manipulateur de fichiers”` au **développeur capable d’automatiser son environnement**.
+
+---
+
+## Section 37 : Les dictionnaires
+
+## 🧠Objectif de la section
+
+Découvrir et maîtriser les **dictionnaires**, une structure de données essentielle en Python.  
+Les dictionnaires permettent d’associer des **clés uniques** à des **valeurs**, offrant un moyen rapide et flexible d’organiser, de rechercher et de modifier des informations.  
+
+Ils constituent la base de nombreuses structures modernes : **fichiers JSON**, **bases de données**, **configurations**, **réponses d’API**, etc.
+
+---
+
+## 🔹 Définition et caractéristiques
+
+Un **dictionnaire** est une collection **non ordonnée**, **modifiable** et **indexée** par des clés uniques.  
+Chaque élément est une paire **clé : valeur**.
+
+```python
+mon_dico = {"nom": "Jordani", "score": 96}
+```
+
+- Les clés doivent être **immuables** (par exemple : `str`, `int`, `tuple`),  
+- Les valeurs peuvent être **n’importe quel type** (nombre, chaîne, liste, autre dictionnaire…).
+
+💡 **But de cette partie :** comprendre la structure interne et les types de données acceptés dans un dictionnaire.
+
+---
+
+## 🔸 Accéder à une valeur
+
+Pour obtenir une valeur, on utilise sa clé entre crochets.  
+Si la clé n’existe pas, une erreur `KeyError` est levée.
+
+```python
+mon_dico = {"nom": "Jordani", "score": 96}
+print(mon_dico["prenom"])  # KeyError: 'prenom'
+```
+
+👉 Pour éviter cette erreur, on peut utiliser la méthode `.get()` qui renvoie une valeur par défaut si la clé est absente.
+
+```python
+mon_dico = {"nom": "Jordani", "score": 96}
+print(mon_dico.get("prenom", "Inconnu"))  # Inconnu
+print(mon_dico.get("nom", "Inconnu"))  # Jordani
+```
+
+💡 **But de cette partie :** savoir accéder de façon sécurisée aux données d’un dictionnaire sans risquer d’interrompre le programme.
+
+---
+
+## 🔸 Ajouter ou modifier une entrée
+
+Un dictionnaire est **modifiable** :  
+
+- si la clé n’existe pas, une nouvelle paire est ajoutée ;  
+- si la clé existe déjà, la valeur correspondante est mise à jour.
+
+```python
+mon_dico = {"nom": "Jordani", "score": 96}
+mon_dico["score"] = 97
+print(mon_dico)  # {'nom': 'Jordani', 'score': 97}
+```  
+
+💡 **But de cette partie :** comprendre comment les dictionnaires gèrent dynamiquement les ajouts et modifications sans nécessiter de structure fixe.
+
+---
+
+## 🔸 Supprimer une entrée
+
+Pour retirer un élément d’un dictionnaire, plusieurs méthodes sont possibles.
+
+```python
+mon_dico = {"nom": "Jordani", "score": 96}
+del mon_dico["nom"]
+print(mon_dico)  # {'score': 96}
+mon_dico = {"nom": "Jordani", "score": 96}
+print(mon_dico.pop("nom"))  # Jordani
+print(mon_dico)  # {'score': 96}
+mon_dico = {"nom": "Jordani", "score": 96}
+mon_dico.clear()
+print(mon_dico)  # {}
+```  
+
+💡 **Remarque :**  
+
+- `del` supprime une entrée spécifique sans retourner la valeur, possible aussi de supprimer un dictionnaire entier de façon définitive (exemple `del mon_dico`),  
+- `.pop()` supprime et retourne la valeur,
+- `.popitem()` supprime le dernier elément et retourne une paire clé/valeur (un `tuple`),
+- `.clear()` vide entièrement le dictionnaire et retourne un dictionnaire vide.
+
+---
+
+## 🔸 Parcourir un dictionnaire
+
+Il est souvent nécessaire de parcourir un dictionnaire pour traiter ses données.  
+Trois méthodes principales permettent d’accéder aux éléments :  
+
+- `.keys()` → renvoie la liste des **clés**  
+- `.values()` → renvoie la liste des **valeurs**  
+- `.items()` → renvoie les **paires clé/valeur** (idéal pour les boucles)
+
+```python
+mon_dico = {"nom": "Jordani", "score": 96}
+for cle in mon_dico.keys():
+    print(cle)
+for valeur in mon_dico.values():
+    print(valeur)
+for cle, valeur in mon_dico.items():
+    print(cle, valeur)
+```  
+
+💡 **But de cette partie :** apprendre à itérer efficacement sur les éléments d’un dictionnaire, notamment dans les cas de traitements ou de conversions de données.
+
+---
+
+## 🔹 Fonctions et méthodes utiles
+
+Les dictionnaires possèdent plusieurs méthodes intégrées très puissantes comme :  
+
+| Méthode | Rôle |
+|----------|------|
+| `.get(cle)` | Récupère la valeur sans générer d’erreur si la clé est absente |
+| `.pop(cle)` | Supprime et retourne la valeur associée |
+| `.popitem()` | Supprime et retourne la paire clé/valeur le plus ancienne |
+| `.update(dico)` | Ajoute ou met à jour plusieurs paires clé/valeur |
+| `.clear()` | Vide le dictionnaire |
+| `.keys()` | Retourne un itérable de toutes les clés |
+| `.values()` | Retourne un itérable de toutes les valeurs |
+| `.items()` | Retourne un itérable de toutes les paires clé/valeur |
+
+💡 **But de cette partie :** maîtriser les opérations fondamentales pour manipuler les dictionnaires de manière fluide et efficace.
+
+---
+
+## 🧠 Concepts clés
+
+- Les dictionnaires sont **optimisés pour l’accès rapide** grâce à leurs clés (recherche quasi instantanée).  
+- Ils permettent de **structurer les données sous forme d’association** logique.  
+- Très utilisés dans les **fichiers JSON**, les **API**, et la **programmation orientée objet**.  
+- La **flexibilité** du dictionnaire permet d’y imbriquer d’autres structures (listes, dictionnaires, tuples…).  
+- C’est l’un des types de données les plus puissants et polyvalents du langage Python.
+
+---
+
+## 💡 Exemple d’application typique
+
+Dans un programme de gestion de notes, chaque étudiant peut être représenté par une clé (nom), et ses résultats par une valeur (autre dictionnaire contenant les matières et les scores).  
+Cette structure permet un accès rapide, une mise à jour facile, et une lecture intuitive des données.
+
+---
+
+## 🗒️Résumé
+
+Cette section nous a permis de :
+
+- comprendre la structure **clé/valeur** et le fonctionnement interne des dictionnaires ;  
+- manipuler des données associatives de manière **souple et dynamique** ;  
+- découvrir les méthodes intégrées (`get`, `update`, `pop`, etc.) ;  
+- apprendre à **parcourir et modifier** un dictionnaire en toute sécurité ;  
+- préparer le terrain pour la **manipulation de données complexes** (JSON, APIs, bases de données).  
+
+👉 En résumé, les dictionnaires sont le **cœur organisationnel du langage Python** : ils permettent de représenter efficacement les relations entre des entités et d’accéder aux données avec élégance et rapidité.
+
+---
+
+## Section 38 : Projet #7 — Le trieur de fichiers
+
+## 📌 Objectif du projet
+
+Créer un programme Python capable de **trier automatiquement les fichiers** d’un dossier (par exemple _Downloads_) selon leur **type ou extension**.  
+Ce projet illustre parfaitement l’utilité pratique de Python dans l’automatisation de tâches répétitives et dans la **gestion intelligente des fichiers personnels**.
+
+💡 Ce projet prolonge directement la section précédente sur `pathlib`, en ajoutant une véritable logique d’organisation et d’automatisation complète.
+
+---
+
+## 🛠️Compétences mobilisées
+
+- Utilisation du module **`pathlib`** pour la gestion des chemins de fichiers.  
+- Manipulation de répertoires avec `.iterdir()`.  
+- Création dynamique de dossiers via `.mkdir()`.  
+- Déplacement de fichiers avec `shutil.move()` (ou `.rename()` dans certaines variantes).  
+- Gestion des **extensions de fichiers** à l’aide de dictionnaires.  
+- Utilisation de **conditions et de boucles** pour trier les fichiers selon leur type.  
+- Gestion de cas particuliers (doublons, dossiers spécifiques comme *Telegram Desktop*).  
+
+---
+
+## 🔹 Étapes de réalisation
+
+### 1️⃣ Identifier le dossier cible
+
+Le programme commence par définir le **dossier de travail**, souvent `Downloads`, obtenu via `Path.home()` pour garantir la compatibilité multiplateforme.  
+👉 Cette approche assure que le script s’adapte automatiquement à tout environnement utilisateur.
+
+---
+
+### 2️⃣ Définir les catégories de fichiers
+
+On crée un **dictionnaire de correspondance** (`extension_folders`) reliant chaque type de fichier à une liste d’extensions :  
+par exemple `"Images"` → `[".jpg", ".png", ".gif"]`, `"Documents"` → `[".pdf", ".txt", ".docx"]`, etc.
+
+💡 Cette étape rend le script **modulaire** et **facilement personnalisable** : il suffit d’ajouter une extension pour qu’elle soit automatiquement prise en charge.
+
+---
+
+### 3️⃣ Parcourir le dossier et trier les fichiers
+
+À l’aide de `.iterdir()`, le programme parcourt tous les fichiers présents dans le dossier cible.  
+Chaque fichier est analysé :  
+
+- s’il correspond à une extension connue, il est déplacé dans le dossier correspondant ;  
+- sinon, il est redirigé vers un dossier “Logiciels” ou “Autres”.
+
+💡 Cette approche montre comment **intégrer la logique de tri dans une boucle**, rendant le script plus dynamique et polyvalent.
+
+---
+
+### 4️⃣ Gérer le dossier “Telegram Desktop”
+
+Une particularité personnnelle du projet : le programme gère également le **sous-dossier `Telegram Desktop`**.  
+Ce dossier contient des fichiers multimédias téléchargés via Telegram, que le programme trie dans des sous-dossiers spécifiques (`Telegram_Images`, `Telegram_Videos`, etc.).
+
+💡 Cette approche montre comment **intégrer la logique de tri dans plusieurs niveaux hiérarchiques**, rendant le script plus complet et polyvalent.
+
+---
+
+### 5️⃣ Créer les dossiers et déplacer les fichiers
+
+Le programme crée automatiquement les dossiers nécessaires grâce à :  
+`mkdir(parents=True, exist_ok=True)`  
+puis déplace les fichiers avec :  
+`shutil.move(str(fichier), str(dossier_destination / fichier.name))`
+
+💡 **But de cette partie :** maîtriser la gestion de la création dynamique de répertoires et du déplacement sécurisé des fichiers.
+
+---
+
+### 6️⃣ Gérer les doublons ou fichiers inconnus
+
+Si un fichier ne correspond à aucune catégorie d’extension connue, il est automatiquement placé dans un dossier générique (“Logiciels” ou “Autres”).  
+Cette gestion préventive évite les erreurs et garantit qu’aucun fichier ne reste à la racine du dossier.
+
+---
+
+## 🔹 Exemple de logique globale du programme
+
+_(description textuelle d’un exemple concret)_  
+
+- Le script analyse le dossier **Downloads**.  
+- Il trouve par exemple :
+  - un fichier `document.pdf` → déplacé vers le dossier `/Documents`  
+  - un fichier `photo.png` → déplacé vers `/Images`  
+  - un fichier `musique.mp3` → déplacé vers `/Musiques`  
+  - un fichier `script.py` → déplacé vers `/Codes`  
+  - un fichier inconnu `setup.exe` → déplacé vers `/Logiciels`  
+- Si un dossier `Telegram Desktop` existe, il effectue le même tri à l’intérieur.
+
+💡 Résultat : un dossier Downloads propre, structuré et organisé automatiquement selon le type de fichiers.
+
+Ce projet nous a permis de mettre en pratique toutes les notions vues précédemment sur la manipulation de fichiers avec **`pathlib`**.  
+J’y ai implémenté ma propre version du trieur automatique, en intégrant une gestion personnalisée des extensions et des sous-dossiers spécifiques comme **Telegram Desktop**.
+
+📁 Fichier : [Le trieur de fichiers](../Projets/Trieur_de_fichiers.py)
+
+---
+
+## 💡 Concepts clés
+
+- **`pathlib`** simplifie toutes les manipulations de chemins et rend le code lisible.  
+- **Les dictionnaires** permettent une classification claire et rapide des extensions.  
+- **`shutil`** complète `pathlib` pour les déplacements et suppressions de fichiers.  
+- La **combinaison logique de conditions, boucles et structures de données** rend le code flexible et maintenable.  
+- Ce type de script illustre la **puissance de Python dans l’automatisation personnelle et professionnelle**.  
+
+---
+
+## 🔍 Améliorations possibles
+
+- Ajouter un **système de journalisation (`logging`)** pour suivre les fichiers déplacés.  
+- Détecter les **doublons** et les renommer automatiquement.  
+- Intégrer une **interface graphique (Tkinter ou PySide)** pour sélectionner le dossier cible.  
+- Créer une **version planifiée** (exécutée automatiquement à intervalle régulier).  
+- Transformer le script en **module réutilisable** ou en **application CLI**.  
+
+---
+
+## 💡Pourquoi ce projet est important
+
+Ce projet prouve que Python n’est pas seulement un langage académique, mais un **outil d’automatisation puissant** dans la vie quotidienne.  
+En automatisant le tri des fichiers :
+
+- nous améliorons la **productivité**,  
+- nous découvrons la **programmation orientée tâches**,  
+- et nous appliquons les notions fondamentales de **structures de données, conditions et chemins**.
+
+C’est aussi une première étape vers la **programmation orientée objet**, où ce script pourrait devenir une **classe “FileOrganizer”** avec des méthodes dédiées (`trier_fichiers()`, `creer_dossiers()`, etc.).
+
+---
+
+## 🗒️ Résumé
+
+Ce projet nous a permis de :
+
+- consolider notre maîtrise de `pathlib`, de `shutil`, et surtout sans oublier la méthode `rename()`, qui, à l’instar de `shutil.move()`, permet également de déplacer des fichiers ;
+  - `rename()` → déplace ou renomme un fichier (plus rapide, même disque),
+  - `shutil.move()` → plus polyvalent (gère les systèmes différents, copie/suppression).
+- comprendre la gestion de dossiers et de fichiers,  
+- manipuler efficacement les fichiers et répertoires,  
+- créer une structure d’organisation dynamique et automatisée,  
+- et comprendre l’importance de la modularité dans la conception de scripts.  
+
+👉 En résumé, ce projet nous a fait passer du simple script utilitaire à un **outil d’automatisation complet**, ouvrant la voie à la **programmation orientée objet** et à des applications encore plus robustes.
+
+---
+
+## Section 39 : Projet #8 — Le créateur de dossiers
+
+## 📌Objectif du projet
+
+Dans ce projet, nous avons pour mission de **générer automatiquement une arborescence de dossiers** à partir d’un **dictionnaire Python**.  
+Ce programme, simple mais extrêmement utile, nous apprend à automatiser la création de structures de travail répétitives — un gain de temps considérable dans de nombreux contextes professionnels :
+
+- organisation de projets (films, séries, entreprises, etc.),
+- préparation de dossiers administratifs ou pédagogiques,  
+- structuration de répertoires de développement.
+
+💡 Ce projet illustre parfaitement la philosophie du développeur : _“ne jamais refaire à la main ce qu’on peut automatiser intelligemment 😅😉.”_
+
+---
+
+## ⚒️ Compétences mobilisées
+
+- Manipulation de **chemins de fichiers** avec `pathlib`.  
+- Utilisation d’un **dictionnaire imbriqué** pour représenter la hiérarchie de dossiers.  
+- Création dynamique de répertoires avec `.mkdir(parents=True, exist_ok=True)`.  
+- Boucles `for` imbriquées pour parcourir les clés et les valeurs du dictionnaire.  
+- Gestion de la suppression et du nettoyage de répertoires avec `shutil.rmtree()`.  
+- Compréhension de la **modularité** et de la **réutilisabilité** du code.
+
+---
+
+## 🔹Étapes de réalisation
+
+### 1️⃣ Définir le dossier parent
+
+Nous commençons par définir le **chemin du dossier racine** dans lequel sera créée toute la structure.  
+Ce chemin est obtenu avec `Path.cwd()` ou `Path.home()`, garantissant la compatibilité multiplateforme.
+
+---
+
+### 2️⃣ Définir la structure de dossiers
+
+Nous définissons ensuite un **dictionnaire** où chaque **clé** représente un dossier principal,  
+et chaque **valeur** est une **liste de sous-dossiers** à créer.  
+
+💡 Par exemple, la clé `"Films"` contient une liste de titres de films, `"Series"` contient les noms de séries, etc.  
+Cette approche rend le programme **souple** et **facilement extensible** : il suffit de modifier le dictionnaire pour créer une autre arborescence.
+
+---
+
+### 3️⃣ Parcourir le dictionnaire et créer les dossiers
+
+Grâce à une double boucle `for` et la méthode `.items()`, nous parcourons entierement le dictionnaire.  
+Pour chaque combinaison, un **chemin complet** est construit, puis le dossier correspondant est créé avec :
+
+`mkdir(parents=True, exist_ok=True)`
+
+Cette méthode permet de créer tous les dossiers intermédiaires automatiquement (même s’ils n’existent pas encore) sans provoquer d’erreur.
+
+---
+
+### 4️⃣ Option : Nettoyage après test
+
+Une fois la structure créée, il est possible de **supprimer automatiquement** le dossier de test pour éviter l’encombrement de l’espace de travail.  
+Cela se fait en une seule ligne grâce à la fonction `shutil.rmtree()` utilisée lorque le dossier n'est pas vide (composé de sous-dossiers), au cas contraire on aurait pu utiliser la méthode `rmdir()`.
+
+💡 Cette étape est optionnelle, mais elle démontre une bonne pratique : toujours penser à la maintenance et au nettoyage automatique des fichiers temporaires.
+
+---
+
+## 🔹Exemple de logique globale du programme
+
+_(description textuelle d’un exemple concret)_  
+
+1. Nous exécutons le script.  
+2. Le programme crée un dossier principal nommé `Dossier_test` dans le répertoire `Projets`.  
+3. À l’intérieur, il crée automatiquement les sous-dossiers :
+   - `Films` → `Le Seigneur des Anneaux`, `Harry Potter`, `Moon`, `Forrest Gump`  
+   - `Series` → `Breaking Bad`, `Game of Thrones`, etc.  
+   - `Documentaires`, `Animes`, `Mangas` → chacun avec leurs sous-dossiers respectifs.  
+4. À la fin, toute la hiérarchie de dossiers est créée **en quelques secondes**, sans intervention manuelle.  
+
+Ce projet nous a permis de mettre en pratique l’association entre les **dictionnaires** (pour représenter la structure logique) et les **objets `Path`** (pour matérialiser cette structure sur le disque).
+
+📁 Fichier : [Créateur de dossiers](../Projets/Createur_de_dossiers.py)
+
+---
+
+## 💡Concepts clés
+
+- Un **dictionnaire** peut être utilisé pour modéliser une hiérarchie complète (clé → sous-dossiers).  
+- Le module **`pathlib`** rend la gestion des chemins **plus simple et lisible** que `os.path`.  
+- L’option `parents=True` dans `.mkdir()` garantit la création récursive de l’arborescence.  
+- L’option `exist_ok=True` évite les erreurs si le dossier existe déjà.  
+- Le module **`shutil`** complète `pathlib` pour gérer les suppressions et nettoyages automatiques.  
+
+---
+
+## 🔎 Améliorations possibles
+
+- Ajouter une **interface CLI** (via `argparse` ou `typer`) pour définir le dossier cible et le dictionnaire.  
+- Lire la structure depuis un **fichier JSON externe**, pour permettre à des non-programmeurs de définir leur propre arborescence.  
+- Intégrer un **système de logs (`logging`)** pour suivre la création des dossiers.  
+- Ajouter une option de **confirmation** avant suppression automatique.  
+- Transformer le script en **classe Python** (`FolderCreator`) pour plus de modularité et de réutilisabilité.
+
+---
+
+## 💡 Pourquoi ce projet est important
+
+Ce projet nous enseigne à **automatiser la création de structures récurrentes**, ce qui est extrêmement utile dans les environnements professionnels (cinéma, bureautique, développement, gestion documentaire).  
+Il met en pratique la logique d’association vue avec les **dictionnaires**, et la relie à la **gestion des chemins** étudiée précédemment.  
+
+En quelques lignes de code, nous avons transformé une tâche manuelle et répétitive en un **processus automatisé, propre et extensible**.
+
+---
+
+## 🗒️ Résumé
+
+Ce projet nous a permis de :
+
+- combiner l’utilisation des **dictionnaires** et de **`pathlib`** pour créer des structures complexes,  
+- renforcer notre logique de **boucles imbriquées et conditions**,  
+- apprendre à **automatiser la création de répertoires** selon un schéma défini,  
+- et découvrir comment rendre un script plus **générique et professionnel**.  
+
+👉 En résumé, nous avons franchi une nouvelle étape vers la **programmation modulaire et orientée objet**, en construisant un outil utile, adaptable et applicable à de nombreux domaines professionnels.
+
+---
+
+## Section 40 : Projet #9 — Organiser des données
+
+## 📌 Objectif du projet
+
+Le but de ce projet est de **manipuler, nettoyer et organiser des données textuelles** contenues dans un fichier.  
+Nous apprenons à lire un fichier, extraire son contenu, le trier puis réécrire les données de manière ordonnée.  
+
+Ce projet marque notre première incursion dans l’univers de la **data-science**, en appliquant des opérations basiques d’analyse et de traitement de données sans recourir encore à des bibliothèques externes comme `pandas`.
+
+💡 Ce type d’exercice, bien qu’en apparence simple, introduit des notions fondamentales : la lecture de fichiers, la gestion de chaînes, et la logique algorithmique du tri.
+
+---
+
+## 🛠️ Compétences mobilisées
+
+- Lecture et écriture de fichiers texte avec `pathlib` et ses méthodes `.read_text()` / `.write_text()`.  
+- Utilisation de **listes** et de **listes en compréhension** pour extraire et transformer les données.  
+- Nettoyage des chaînes de caractères avec `.strip()`, `.split()`, et gestion des lignes vides.  
+- Tri des données avec `.sort()` ou `sorted()`.  
+- Structuration logique du code : séparer les étapes de lecture, nettoyage, tri et écriture.  
+- Gestion de l’encodage et des chemins de fichiers.
+
+---
+
+## 🔹🔹 Étapes de réalisation
+
+### 1️⃣ Lecture du fichier source
+
+Nous commençons par définir le chemin du fichier contenant les données (`prenoms.txt`) à l’aide de `Path`.  
+Ensuite, nous utilisons `.read_text()` pour récupérer son contenu.
+
+💡 **But de cette partie :** apprendre à lire un fichier complet en une seule ligne, tout en s’assurant de l’encodage correct (`utf-8`).
+
+---
+
+### 2️⃣ Extraction des noms
+
+Le contenu brut du fichier est ensuite **séparé en lignes** grâce à la méthode `.splitlines()`, puis chaque ligne est découpée en mots individuels.  
+L’objectif est d’obtenir une **liste complète de prénoms**, même si ceux-ci sont séparés par des espaces, des virgules ou plusieurs retours à la ligne.
+
+💡 **But de cette partie :** convertir un texte brut en structure de données exploitable.
+
+---
+
+### 3️⃣ Nettoyage des données
+
+Nous supprimons les espaces, les points, les virgules et les lignes vides afin de conserver uniquement les prénoms valides.  
+Ce processus de _“data cleaning”_ est une étape essentielle dans tout pipeline de traitement de données.
+
+💡 **But de cette partie :** comprendre l’importance du prétraitement avant toute analyse de données.
+
+---
+
+### 4️⃣ Tri alphabétique
+
+La liste propre est ensuite triée en ordre alphabétique, soit :
+
+- **en place** avec `.sort()`,  
+- ou **en créant une nouvelle liste** avec `sorted()`.
+
+💡 **But de cette partie :** découvrir la puissance et la simplicité du tri intégré en Python.
+
+---
+
+### 5️⃣ Écriture du fichier nettoyé et trié
+
+Enfin, nous écrivons la liste obtenue dans un nouveau fichier nommé `prenoms_organises.txt` à l’aide de `.write_text()`.  
+Chaque prénom est séparé par un retour à la ligne `\n`.
+
+💡 **But de cette partie :** comprendre l’importance de la structuration logique du code.
+
+---
+
+## 🔹🔹 Exemple de logique globale du programme
+
+(description textuelle d’un exemple concret)
+
+1. Le fichier `prenoms.txt` contient une liste désordonnée de prénoms, avec des espaces et des doublons.  
+2. Le script lit tout le contenu, puis nettoie les données en supprimant les caractères parasites.  
+3. Il trie les prénoms par ordre alphabétique.  
+4. Il réécrit le tout dans `prenoms_organises.txt`.  
+5. Résultat : une liste propre, ordonnée et prête à l’usage.
+
+Ce projet nous a permis d’appliquer les notions de manipulation de texte et de structuration des données de manière pratique et efficace.
+
+📁 Fichier : [Organiser des données](../Projets/Organiser_des_donnees.py)
+
+---
+
+## 💡 Possibilité d’implémenter le code le plus simplement possible
+
+Une **liste de compréhension** permet de condenser le traitement complet en quelques lignes :
+
+Exemple :
+
+```python
+from pathlib import Path
+
+chemin = Path("noms.txt")
+contenu = chemin.read_text()
+
+noms = [nom.strip() for nom in contenu.splitlines() if nom.strip()]
+noms.sort()
+
+chemin_tri = Path("noms_tries.txt")
+chemin_tri.write_text("\n".join(noms))
+
+```
+
+💡 **But de cette partie :** comprendre la puissance et la simplicité des listes en compréhension en Python.
+
+💡 Cette approche démontre la **lisibilité et la puissance expressive** du langage Python : peu de lignes, beaucoup d’efficacité.
+
+---
+
+## 🧠 Concepts clés
+
+- La lecture et l’écriture de fichiers sont les bases de la manipulation de données.  
+- Les **listes en compréhension** permettent un code concis et lisible.  
+- Le **nettoyage des données** (data cleaning) avec les méthodes comme `.strip()` ou `.split()` est une étape cruciale avant toute analyse.  
+- Les fonctions intégrées comme `.sort()` ou `sorted()` simplifient les opérations de tri.  
+
+---
+
+## 🔍Améliorations possibles
+
+- Ajouter une **vérification automatique** de l’existence du fichier source.  
+- Implémenter une **gestion d’erreurs** (`try/except`) pour les cas de fichiers vides ou corrompus.  
+- Créer une **fonction générique** (`organiser_fichier(path_source, path_sortie)`).  
+- Ajouter un **compteur de lignes traitées** ou un **rapport d’exécution**.  
+- Étendre le script à d’autres formats de données (`.csv`, `.json`).  
+
+---
+
+## 💡 Pourquoi ce projet est important
+
+Ce projet nous initie à la **pensée “data”**, c’est-à-dire à la manière de transformer un contenu brut en données structurées et exploitables.  
+Il nous apprend à :
+
+- analyser un problème de traitement de texte,  
+- découper la logique en étapes claires,  
+- et implémenter un flux de transformation cohérent (lecture → nettoyage → tri → écriture).  
+
+Ces bases seront indispensables pour les prochains projets, où nous irons vers la **programmation orientée données** et la **visualisation**.
+
+---
+
+## Résumé
+
+Ce projet nous a permis de :
+
+- maîtriser la lecture et l’écriture de fichiers texte avec `pathlib`,  
+- manipuler et nettoyer des données textuelles,  
+- trier efficacement des informations à l’aide de méthodes Python natives,  
+- et appliquer la logique de traitement de données à un cas concret.  
+
+👉 En résumé, nous avons découvert la **puissance de Python pour organiser et transformer des données**, jetant les fondations de la future exploration de la data-science.
+
+---
+
+## Section 41 : Gestion des erreurs avec les exceptions
+
+## 📌 Objectif de la section
+
+Dans cette section, nous apprenons à **anticiper, intercepter et gérer les erreurs** dans un programme Python grâce aux blocs `try/except`.  
+L’objectif est de rendre notre code **plus robuste, plus professionnel et plus agréable à utiliser**.
+
+💡 En pratique : un bon développeur ne cherche pas seulement à faire fonctionner son programme,  
+il veille aussi à ce qu’il _ne plante pas_ face aux imprévus.
+
+---
+
+## 🔹 Pourquoi gérer les erreurs ?
+
+Lorsqu’un programme rencontre une situation imprévue (fichier manquant, saisie invalide, division par zéro…),  
+Python interrompt par défaut son exécution et affiche une **exception**.  
+En capturant ces erreurs avec `try/except`, nous pouvons :
+
+- éviter les plantages brutaux,  
+- afficher des **messages clairs** à l’utilisateur,  
+- et exécuter du **code alternatif ou de nettoyage**.
+
+💡 **But de cette partie :** comprendre la nécessité de prévoir les erreurs pour fiabiliser les programmes.
+
+---
+
+## 🔸 Syntaxe de base
+
+```python
+try:
+    # Code à tester
+    resultat = 10 / 0
+except ZeroDivisionError:
+    print("Division par zéro interdite !")
+```  
+
+Le bloc `try` contient le code **potentiellement risqué**, tandis que le bloc `except` intercepte une erreur spécifique.  
+Il est possible d’intercepter plusieurs types d’erreurs selon le contexte.
+
+💡 **Exemple textuel :**
+
+Un programme tente de diviser deux nombres ; si l’utilisateur saisit 0, on affiche _“Division par zéro interdite !”_ au lieu d’un message d’erreur Python.
+
+---
+
+## 🔸 Gérer plusieurs types d’erreurs
+
+Dans un même bloc `try`, plusieurs exceptions peuvent être anticipées à l’aide de plusieurs blocs `except`.
+
+```python
+try:
+    # Code à tester
+    valeur = int(input("Entrez une valeur : "))
+    resultat = 10 / valeur
+    print(resultat)
+except ValueError:
+    print("Valeur invalide !")
+except ZeroDivisionError:
+    print("Division par zéro interdite !")
+```
+
+💡 **But de cette partie :** différencier les types d’erreurs (valeur invalide, division impossible, etc.) pour fournir une réponse adaptée à chaque cas.
+
+---
+
+## 🔸 Utiliser `else` et `finally`
+
+- Le bloc `else` s’exécute uniquement si **aucune exception n’est levée**,  
+- tandis que `finally` s’exécute **quoi qu’il arrive**,  
+même si une erreur survient ou que le programme est interrompu.
+
+```python
+try:
+    # Code à tester
+    valeur = int(input("Entrez une valeur : "))
+    resultat = 10 / valeur
+    print(resultat)
+except ValueError:
+    print("Valeur invalide !")
+except ZeroDivisionError:
+    print("Division par zéro interdite !")
+else:
+    print("Tout va bien !")
+finally:
+    print("Fin du programme.")
+```
+
+💡 **But de cette partie :** apprendre à effectuer des actions finales indispensables, comme fermer un fichier, libérer une ressource ou afficher un message de fin proprement.
+
+---
+
+## 🔹 Exemple de logique globale du programme
+
+(description textuelle d’un exemple concret)
+
+1. Le programme demande à l’utilisateur d’entrer le nom d’un fichier à ouvrir.  
+2. Il tente d’ouvrir ce fichier avec encodage `utf-8`.  
+3. Si le fichier n’existe pas → `FileNotFoundError` est levée.  
+4. Si l’utilisateur n’a pas la permission → `PermissionError`.  
+5. Si le contenu n’est pas décodable → `UnicodeDecodeError`.  
+6. En cas d’autre erreur système → `OSError`.  
+7. Le contenu du fichier est affiché seulement si tout se passe bien.  
+8. Le bloc `finally` s’exécute toujours pour signaler la fin de l’opération.
+
+Ce projet nous a permis d’appliquer la gestion d’exceptions dans un cas concret —  
+celui de la **lecture sécurisée d’un fichier** en anticipant toutes les erreurs possibles.
+
+📁 Fichier : [Les exceptions](../Exercices/Partie_02/Les_exceptions.py)
+
+---
+
+## 🧠 Concepts clés
+
+- Les erreurs en Python sont des **exceptions** que l’on peut **intercepter** et **traiter**.  
+- Les blocs `try/except` permettent de **prévenir les interruptions** du programme.  
+- `else` et `finally` ajoutent de la **logique conditionnelle et de la sécurité** aux traitements.  
+- Une **bonne gestion d’erreurs** améliore l’expérience utilisateur et la qualité du code.  
+- La **spécificité des exceptions** (attraper uniquement ce qu’on prévoit) est une bonne pratique.  
+
+---
+
+## 💡 Pourquoi ce projet est important
+
+Ce projet nous apprend que **l’erreur fait partie du code**.  
+Un programme professionnel n’est pas celui qui ne contient aucune erreur,  
+mais celui qui **sait les gérer intelligemment**.  
+
+En anticipant les exceptions :
+
+- nous rendons le code **plus stable**,  
+- nous améliorons l’**interaction avec l’utilisateur**,  
+- et nous adoptons une démarche **préventive et responsable**.
+
+C’est une compétence clé pour passer du _"code qui marche"_ à du **code fiable et maintenable**.
+
+---
+
+## 🗒️ Résumé
+
+Cette section nous a permis de :
+
+- comprendre le fonctionnement des exceptions Python,  
+- apprendre à utiliser les blocs `try`, `except`, `else`, `finally`,  
+- gérer proprement les erreurs liées aux fichiers et aux entrées utilisateur,  
+- et améliorer la **robustesse et la lisibilité** de nos programmes.  
+
+👉 En résumé, nous avons découvert comment faire de nos erreurs non plus des obstacles, mais des **opportunités d’amélioration et de contrôle du flux d’exécution**.
