@@ -14,6 +14,7 @@
 - [Section 39 : Projet #8 — Le créateur de dossiers](#section-39--projet-8--le-créateur-de-dossiers)
 - [Section 40 : Projet #9 — Organiser des données](#section-40--projet-9--organiser-des-données)
 - [Section 41 : Gestion des erreurs avec les exceptions](#section-41--gestion-des-erreurs-avec-les-exceptions)
+- [Section 42 : Les fonctions](#section-42--les-fonctions)
 
 ---
 
@@ -1292,3 +1293,185 @@ Cette section nous a permis de :
 - et améliorer la **robustesse et la lisibilité** de nos programmes.  
 
 👉 En résumé, nous avons découvert comment faire de nos erreurs non plus des obstacles, mais des **opportunités d’amélioration et de contrôle du flux d’exécution**.
+
+## Section 42 : Les fonctions
+
+## 📌 Objectif de la section
+
+Dans cette section, nous apprenons à **créer, utiliser et structurer des fonctions** afin de rendre notre code plus clair, plus réutilisable et davantage modulaire.  
+Les fonctions permettent de regrouper des comportements sous un nom unique, facilitant ainsi l’organisation du programme et réduisant la duplication de code.
+
+💡 **En pratique :** les fonctions sont l’un des piliers de la programmation — maîtriser leur logique, leurs paramètres et leur portée est indispensable avant d’aborder la POO.
+
+---
+
+## 🔹 Définition d’une fonction
+
+Une fonction se définit avec le mot-clé `def` suivi d’un nom, de parenthèses et d’un bloc indenté.
+
+```python
+def saluer():
+    print("Bonjour Jordani !")
+
+saluer()  # Appel de la fonction
+```
+
+Une fonction bien nommée doit exprimer **clairement son intention** :  
+`calculer_total()`, `afficher_message()`, `charger_donnees()`, etc.
+
+💡 **But de cette partie :** comprendre comment regrouper des instructions dans une unité logique.
+
+---
+
+## 🔸 Paramètres et arguments
+
+Les **paramètres** sont les variables déclarées dans la définition de la fonction.  
+Les **arguments** sont les valeurs passées lors de l’appel.
+
+```python
+def saluer(nom):
+    print(f"Bonjour {nom} !")
+
+saluer("Jordani")
+```
+
+💡 **Exemple textuel :**  
+La fonction possède un paramètre `nom`, et nous lui passons l’argument `"Jordani"` lors de l’exécution.
+
+---
+
+## 🔸 Valeur de retour
+
+Une fonction peut renvoyer un résultat grâce au mot-clé `return`.  
+Ce résultat peut être **stocké**, **affiché**, ou **réutilisé** dans un autre calcul.
+
+```python
+def calculer_total(prix, quantite):
+    total = prix * quantite
+    return total
+
+total = calculer_total(10, 5)
+print(f"Le total est de {total} euros.")
+```  
+
+💡 Une fonction peut retourner **n’importe quel type** : nombre, chaîne, liste, dictionnaire, booléen, etc.
+
+---
+
+## 🔸 Paramètres par défaut
+
+Les paramètres peuvent posséder une **valeur par défaut**, utilisée si aucun argument n’est fourni lors de l’appel.
+
+```python
+def saluer(nom="Jordani"):
+    print(f"Bonjour {nom} !")
+
+saluer()  # Affiche "Bonjour Jordani !"
+saluer("Alice")  # Affiche "Bonjour Alice !"
+```  
+
+💡 Très utile pour éviter les erreurs quand l’appelant n’a pas toutes les informations.
+
+---
+
+## 🔸 Arguments nommés et positionnels
+
+Lorsqu’on appelle une fonction, on peut fournir les arguments :
+
+- **par position** (dans l’ordre des paramètres),
+- ou **par nom** (dans n’importe quel ordre).
+
+```python
+def presentation(nom, age):
+    print(f"Bonjour, je m’appelle {nom} et j’ai {age} ans.")
+
+presentation("Jordani", 20)  # Positionnel, affiche "Bonjour, je m’appelle Jordani et j’ai 20 ans."
+presentation(age=20, nom="Jordani")  # Nommés, affiche "Bonjour, je m’appelle Jordani et j’ai 20 ans."
+```  
+
+💡 Cela augmente considérablement la lisibilité du code.
+
+---
+
+## 🔸 Fonctions avec nombre variable d’arguments
+
+Python permet de créer des fonctions acceptant un nombre illimité d’arguments :
+
+- `*args` → arguments positionnels multiples  
+- `**kwargs` → arguments nommés multiples  
+
+```python
+def addition(*nombres):
+    return sum(nombres)
+
+resultat = addition(1, 2, 3, 4, 5)
+print(f"Le resultat de l'addition est : {resultat}")
+```
+
+💡 Cela permet de construire des fonctions **flexibles**, capables de s’adapter à différentes situations.
+
+---
+
+## 🔸 Portée des variables (scope)
+
+La **portée** détermine où une variable est accessible.
+
+- **Variable locale :** définie dans la fonction, utilisable uniquement à l’intérieur.
+- **Variable globale :** définie en dehors, accessible depuis tout le programme.
+
+```python
+x = 10  # globale
+
+def afficher():
+    x = 5  # locale
+    print(x)
+
+afficher()  # 5
+print(x)    # 10
+```
+
+💡 La distinction entre **local** et **global** est cruciale pour éviter les erreurs liées aux variables partagées.
+
+---
+
+## 🔸 L’instruction `global`
+
+Elle permet de modifier une variable globale à l’intérieur d’une fonction, mais doit être utilisée **avec prudence**, car elle rend le code moins prévisible.
+
+💡 Bonne pratique :  
+éviter `global` sauf cas absolument nécessaires, et privilégier le passage de paramètres.
+
+---
+
+## 🔸 Passage par référence
+
+En Python, les objets mutables (listes, dictionnaires…) sont passés **par référence**,  
+ce qui permet à la fonction de modifier directement l’objet d’origine.
+
+💡 **Exemple textuel :** une fonction qui ajoute un élément dans une liste modifie la liste originale.
+
+---
+
+## 🧠 Concepts clés
+
+- Une fonction doit avoir un **nom clair et explicite**.  
+- Les paramètres permettent de rendre une fonction **générique**.  
+- `return` permet de renvoyer un résultat exploitable ailleurs.  
+- `*args` / `**kwargs` rendent les fonctions ultra-flexibles.  
+- La portée (locale/globale) est un concept fondamental pour comprendre comment Python gère les variables.  
+- Les fonctions permettent de structurer le code comme un **ensemble de briques logiques**.
+
+---
+
+## 🗒️ Résumé
+
+Cette section nous a permis de :
+
+- comprendre comment définir et appeler des fonctions,  
+- maîtriser les paramètres, arguments et valeurs de retour,  
+- utiliser les paramètres par défaut et les arguments nommés,  
+- gérer des fonctions avec un nombre variable d’arguments,  
+- clarifier la notion de portée des variables,  
+- et poser les bases indispensables pour la **Programmation Orientée Objet** (POO).
+
+👉 En résumé, nous avons enrichi notre capacité à **structurer et modulariser notre code**, un pas essentiel vers des projets plus professionnels.
