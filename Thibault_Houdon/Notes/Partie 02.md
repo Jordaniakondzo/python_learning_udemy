@@ -1408,6 +1408,13 @@ resultat = addition(1, 2, 3, 4, 5)
 print(f"Le resultat de l'addition est : {resultat}")
 ```
 
+```python
+def my_function(**car):
+    print("We have a car's name : " + car["car1"])
+
+my_function(car0 = "MW", car1 = "RAV4", car2 = "Taxi")
+```
+
 💡 Cela permet de construire des fonctions **flexibles**, capables de s’adapter à différentes situations.
 
 ---
