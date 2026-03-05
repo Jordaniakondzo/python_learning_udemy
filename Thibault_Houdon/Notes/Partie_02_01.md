@@ -15,6 +15,7 @@
 - [Section 40 : Projet #9 — Organiser des données](#section-40--projet-9--organiser-des-données)
 - [Section 41 : Gestion des erreurs avec les exceptions](#section-41--gestion-des-erreurs-avec-les-exceptions)
 - [Section 42 : Les fonctions](#section-42--les-fonctions)
+- [Section 43 : Exercices sur les fonctions](#section-43--exercices-sur-les-fonctions)
 
 ---
 
@@ -1482,3 +1483,83 @@ Cette section nous a permis de :
 - et poser les bases indispensables pour la **Programmation Orientée Objet** (POO).
 
 👉 En résumé, nous avons enrichi notre capacité à **structurer et modulariser notre code**, un pas essentiel vers des projets plus professionnels.
+
+# Section 43 : Exercices sur les fonctions
+
+## 📌 Objectif de la section
+
+Cette section est consacrée à la **mise en pratique** de toutes les notions vues sur les fonctions :  
+définition, paramètres, valeurs de retour, portée, récursion, lambdas, et erreurs courantes.
+
+Dans le cours, les exercices proposés se limitent principalement à **corriger des fonctions simples**.  
+Pour approfondir l’apprentissage et développer une véritable maîtrise, nous avons construit un **notebook dédié** contenant :
+
+- des exercices supplémentaires,  
+- des exemples concrets,  
+- des explications pédagogiques,  
+- et plusieurs niveaux de difficulté.
+
+Ce notebook devient une véritable **référence personnelle sur les fonctions en Python**.
+
+---
+
+## 🔧 Exercices du cours
+
+Les exercices du cours consistaient à repérer et corriger différentes erreurs :
+
+- fonctions mal indentées,  
+- paramètres oubliés,  
+- return manquant,  
+- variables mal nommées,  
+- valeurs incorrectes.
+
+Ces exercices ont été réalisés et corrigés dans le notebook.
+
+---
+
+## 🧪 Exercices supplémentaires (notebook)
+
+Afin de renforcer notre compréhension, nous avons ajouté de nombreux exercices personnels :
+
+- Fonctions simples (tri, filtres, résumé de données)  
+- Fonctions lambda (closures, transformations dynamiques)  
+- Fonctions récursives (factorielle, Fibonacci, PGCD, inversion de chaîne…)  
+
+---
+
+## 📁 Notebook associé
+
+👉 Le fichier complet, entièrement documenté :  
+
+**[Fonctions_exos.ipynb](../Exercices/Partie_02/Fonctions_exos.ipynb)**
+
+Il regroupe tous les exercices, les notes explicatives, les corrections et les exemples structurés en trois grandes catégories.
+
+---
+
+## 🗒️ Résumé
+
+Cette section nous a permis de :
+
+- consolider les bases des fonctions Python,
+- corriger des erreurs fréquentes avec précision,
+- pratiquer de véritables exercices de niveau souple → avancé,
+- manipuler les lambdas et la récursion de façon plus naturelle,
+- créer un notebook personnel qui servira de référence durable.
+
+👉 En résumé, cette section marque la transition vers une **maîtrise plus professionnelle** de la logique fonctionnelle en Python.
+
+---
+
+## 🔚 Fin de la Partie 02.01
+
+Avec cette partie, nous avons appris à manipuler les fichiers, organiser des données persistantes, gérer les chemins avec `pathlib`, les fonctions et construire plusieurs projets concrets d’automatisation.  
+Ces notions constituent une étape importante vers une programmation plus pratique et orientée projets.
+
+Nous allons maintenant franchir une nouvelle étape en nous intéressant à la **structuration du code et aux outils de développement plus avancés**, notamment les annotations de type, les modules Python et l’organisation de projets plus complexes.
+
+👉 La suite se trouve dans le fichier suivant :  
+
+**➡️ [Partie 02 — Approfondissement](Partie_02_02.md)**
+
+---
