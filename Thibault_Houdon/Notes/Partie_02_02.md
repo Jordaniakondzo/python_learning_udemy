@@ -12,6 +12,11 @@ Cette suite de la Partie 02 couvre notamment :
 - [Section 45 : Les modules](#section-45--les-modules)
 - [Section 46 : Les packages](#section-46--les-packages)
 - [Section 47 : Documenter son code](#section-47--documenter-son-code)
+- [Section 48 : Le logging](#section-48--le-logging)
+- [Section 49 : Installer des packages supplémentaires avec pip](#section-49--installer-des-packages-supplémentaires-avec-pip)
+- [Section 50 : Étude de cas – Le Scraping](#section-50--étude-de-cas--le-scraping)
+- [Section 51 : Générer des données aléatoires avec Faker](#section-51--générer-des-données-aléatoires-avec-faker)
+- [Section 52 : Les environnements virtuels](#section-52--les-environnements-virtuels)
 
 ---
 
@@ -344,7 +349,7 @@ def additionner(a, b):
     return a + b
 ```
 
-3. importer ce module dans un autre fichier.
+1. importer ce module dans un autre fichier.
 
 ```python
 from mon_module import additionner
@@ -876,3 +881,652 @@ En Python, elle repose principalement sur deux éléments :
 - les **docstrings**, utilisées pour décrire les fonctions, classes et modules
 
 En adoptant de bonnes pratiques de documentation, il devient beaucoup plus facile de comprendre, maintenir et partager un projet Python.
+
+## Section 48 : Le Logging
+
+## 🎯 Objectif de la section
+
+Apprendre à utiliser le module **logging** afin de suivre l’exécution d’un programme, détecter les erreurs, comprendre son comportement et faciliter le débogage.
+
+Le logging est un outil essentiel dans les applications professionnelles.  
+Il permet d’enregistrer des informations sur le fonctionnement du programme pendant son exécution.
+
+---
+
+## 🔹 Pourquoi utiliser le logging ?
+
+Dans les petits scripts, il est fréquent d’utiliser `print()` pour afficher des informations.
+
+Cependant, cette approche devient rapidement limitée dans les applications plus complexes.
+
+Le module **logging** offre plusieurs avantages :
+
+- Permet de définir différents **niveaux d’importance** pour les messages.
+- Peut enregistrer les messages dans un **fichier**.
+- Peut afficher les messages dans la **console**.
+- Peut être activé ou désactivé facilement selon l’environnement.
+- Permet d’analyser le comportement d’un programme après son exécution.
+
+Pour ces raisons, le logging est utilisé dans la plupart des projets professionnels :
+applications web, scripts automatisés, systèmes distribués, etc.
+
+---
+
+## 🔸 Les niveaux de logging
+
+Le module `logging` utilise plusieurs niveaux de gravité pour classer les messages.
+
+| Niveau | Description |
+|--------|-------------|
+| DEBUG | Informations détaillées utiles pour le débogage |
+| INFO | Informations générales sur l’exécution du programme |
+| WARNING | Situation inhabituelle mais non critique |
+| ERROR | Une erreur s’est produite |
+| CRITICAL | Erreur grave pouvant arrêter le programme |
+
+Ces niveaux permettent de **filtrer les messages affichés ou enregistrés**.
+
+---
+
+## 🔹 Configuration simple du logging
+
+Une configuration minimale peut être réalisée avec la fonction `basicConfig()`.
+
+```python
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.info("Demarre du programme")
+```
+
+---
+
+## 🔹 Ajouter un format personnalisé
+
+Il est possible de personnaliser l’affichage des messages de log.
+
+Par exemple, on peut afficher :
+
+- la date
+- le niveau du message
+- le message lui-même
+
+```python
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+```
+
+Exemple de sortie :
+
+```
+2023-01-01 10:00:00 - INFO - Demarrage du programme
+```
+
+---
+
+## 🔹 Écrire les logs dans un fichier
+
+Le logging permet également d’enregistrer les messages dans un fichier.
+
+Cela est particulièrement utile pour analyser le comportement d’un programme après son exécution.
+
+```python
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    filename="app.log",
+    filemode="w",
+)
+```
+
+➡️ Tous les messages **WARNING** et plus graves seront enregistrés dans le fichier `app.log`.
+
+---
+
+## 🔹 Exemple complet
+
+```python
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+    filename="app.log",
+    filemode="w",
+)
+
+logging.debug("Debug message")
+logging.info("Info message")
+logging.warning("Warning message")
+logging.error("Error message")
+logging.critical("Critical message")
+```
+
+---
+
+## 🧠 Concepts clés
+
+Quelques points importants à retenir :
+
+- Le module **logging** est un outil standard de Python pour suivre l’exécution d’un programme.
+- Il remplace avantageusement `print()` dans les applications réelles.
+- Les **niveaux de logging** permettent de filtrer les messages selon leur importance.
+- Les logs peuvent être envoyés vers la **console**, un **fichier**, ou plusieurs destinations.
+- Une bonne configuration de logging facilite énormément le **débogage** et la **maintenance** du code.
+
+---
+
+## 📌 Résumé
+
+Le logging est un mécanisme essentiel pour observer et analyser le comportement d’un programme.
+
+Grâce au module `logging`, il est possible :
+
+- de classer les messages selon leur importance
+- d’enregistrer les événements du programme
+- de faciliter le débogage et la maintenance
+
+Dans les projets professionnels, le logging est largement utilisé pour comprendre ce qui se passe dans une application pendant son exécution.
+
+## Section 49 : Installer des packages supplémentaires avec pip
+
+## 🎯 Objectif de la section
+
+Comprendre comment installer et gérer des **packages Python supplémentaires** à l’aide de l’outil **pip**.
+
+Python possède une grande bibliothèque standard, mais la majorité des projets utilisent également des **packages externes** développés par la communauté.
+
+Le gestionnaire de paquets **pip** permet d’installer, mettre à jour et supprimer facilement ces bibliothèques.
+
+---
+
+## 🔹 Qu’est-ce que pip ?
+
+**pip** est le gestionnaire officiel de packages pour Python.
+
+Il permet de télécharger et d’installer des bibliothèques provenant du dépôt public **PyPI (Python Package Index)**.
+
+Grâce à pip, il est possible d'ajouter facilement des fonctionnalités à un projet Python.
+
+Par exemple :
+
+- manipulation de données → `pandas`
+- calcul scientifique → `numpy`
+- machine learning → `scikit-learn`
+- développement web → `flask` ou `django`
+
+---
+
+## 🔸 Installer un package
+
+Pour installer un package, on utilise la commande suivante dans le terminal :
+
+```python
+pip install package_name
+```
+
+Cette commande télécharge et installe automatiquement la bibliothèque ainsi que ses dépendances.
+
+---
+
+## 🔸 Installer une version spécifique
+
+Il est parfois nécessaire d’installer une version précise d’un package.
+
+```python
+pip install package_name==version
+```
+
+Cela est utile pour assurer la **compatibilité d’un projet**.
+
+---
+
+## 🔸 Mettre à jour un package
+
+Pour installer la version la plus récente d’une bibliothèque :
+
+```python
+pip install --upgrade package_name
+```
+
+---
+
+## 🔸 Désinstaller un package
+
+Pour supprimer un package installé :
+
+```python
+pip uninstall package_name
+```
+
+---
+
+## 🔸 Voir les packages installés
+
+Il est possible d’afficher la liste des packages installés dans l’environnement Python :
+
+```python
+pip list
+```
+
+Cette commande permet de vérifier les bibliothèques disponibles dans l’environnement actuel.
+
+---
+
+## 🔸 Informations sur un package
+
+Pour obtenir des informations détaillées sur une bibliothèque installée :
+
+```python
+pip show package_name
+```
+
+Cela affiche par exemple :
+
+- la version installée
+- les dépendances
+- l’emplacement du package
+
+---
+
+## 📄 Fichier requirements.txt
+
+Dans les projets Python, il est courant d’utiliser ou créer un fichier appelé **requirements.txt**.
+
+Ce fichier contient la liste des bibliothèques nécessaires au projet ainsi que leurs versions specifiques définies par le developpeur.
+
+Exemple de contenu d’un fichier requirements.txt :
+
+```python
+numpy==1.20.1
+pandas==1.2.4
+matplotlib==3.4.2
+scikit-learn==0.24.1
+seaborn==0.11.1
+```
+
+Ce fichier permet de **reproduire exactement le même environnement Python sur une autre machine**.
+
+Pour installer toutes les dépendances listées dans ce fichier :
+
+```python
+pip install -r requirements.txt
+```
+
+Cette pratique est essentielle dans les projets collaboratifs ou open-source.
+
+---
+
+## 🔹 Générer un fichier requirements.txt
+
+Python permet de générer automatiquement ce fichier avec la commande :
+
+```python
+pip freeze > requirements.txt
+```
+
+Cette commande enregistre **toutes les bibliothèques installées dans l’environnement**.
+
+Le fichier généré peut ensuite être partagé avec d'autres développeurs.
+
+---
+
+## 🔹 Bonnes pratiques avec pip
+
+Quelques bonnes pratiques importantes lors de l’utilisation de pip :
+
+- Utiliser un **environnement virtuel** pour chaque projet.
+- Garder un fichier **requirements.txt** pour documenter les dépendances.
+- Spécifier les versions des bibliothèques pour éviter les problèmes de compatibilité.
+- Mettre à jour les packages avec prudence dans les projets existants.
+
+Ces pratiques permettent de rendre un projet **reproductible et maintenable**.
+
+---
+
+## 🧠 Concepts clés
+
+Quelques points importants à retenir :
+
+- **pip** est l’outil standard pour gérer les bibliothèques Python.
+- Les packages sont généralement téléchargés depuis **PyPI**.
+- pip permet d’installer, mettre à jour et supprimer des bibliothèques.
+- Le fichier **requirements.txt** permet de partager facilement les dépendances d’un projet.
+
+---
+
+## 📌 Résumé
+
+Le gestionnaire **pip** est un outil essentiel de l’écosystème Python.
+
+Il permet :
+
+- d’installer de nouvelles bibliothèques
+- de gérer les versions des packages
+- de consulter les dépendances installées
+- de partager facilement l’environnement d’un projet avec un fichier **requirements.txt**
+
+Grâce à pip et à l’écosystème PyPI, Python dispose d’un très grand nombre de bibliothèques permettant de développer rapidement des applications dans de nombreux domaines.
+
+## Section 50 : Étude de cas – Le Scraping
+
+## 🎯 Objectif de la section
+
+Découvrir le principe du **web scraping** à travers une démonstration pratique en Python.
+
+Le web scraping consiste à **extraire automatiquement des informations depuis des pages web** afin de les analyser ou de les exploiter dans un programme.
+
+Dans cette section, l’objectif n’est pas d’apprendre toutes les techniques de scraping, mais simplement de **montrer un exemple concret d’utilisation**.
+
+---
+
+## 🔹 Démonstration présentée
+
+L’exemple présenté dans la formation montre comment utiliser Python pour :
+
+- récupérer les **paroles de chansons** de certains artistes
+- analyser ces textes
+- manipuler les données récupérées
+
+Cette démonstration permet d’illustrer comment Python peut être utilisé pour **collecter des données disponibles sur Internet**.
+
+---
+
+## 🔹 Correction d’un projet étudiant
+
+La section contient également une vidéo dans laquelle l’instructeur **corrige un projet de scraping réalisé par un étudiant**.
+
+Cette correction permet de montrer :
+
+- les erreurs fréquentes lors de l’écriture d’un script de scraping
+- comment améliorer la structure et la lisibilité du code
+- comment rendre un script plus robuste.
+
+---
+
+## 🧠 Concepts clés
+
+Quelques idées importantes à retenir :
+
+- Le **web scraping** permet d’automatiser la collecte de données sur Internet.
+- Python est souvent utilisé pour ce type de tâche grâce à ses nombreuses bibliothèques.
+- Les projets réels de scraping demandent souvent une gestion des erreurs et une bonne organisation du code.
+
+---
+
+## 📌 Remarque
+
+Cette section est principalement une **démonstration pratique**.
+
+Pour approfondir le sujet du scraping (bibliothèques, bonnes pratiques, gestion des requêtes, etc.), une formation dédiée est généralement nécessaire.
+
+## Section 51 : Générer des données aléatoires avec Faker
+
+## 🎯 Objectif de la section
+
+Découvrir la bibliothèque **Faker**, qui permet de générer facilement des **données aléatoires mais réalistes**.
+
+Cette bibliothèque est particulièrement utile pour :
+
+- tester une application
+- simuler une base de données
+- générer des exemples de données
+- effectuer des démonstrations ou des tests.
+
+---
+
+## 🔹 Installation de Faker
+
+La bibliothèque peut être installée avec pip :
+
+```python
+pip install Faker
+```
+
+Une fois installée, il est possible de créer un générateur de données avec :
+
+```python
+from faker import Faker
+```
+
+Faker peut produire de nombreux types de données réalistes.
+
+---
+
+## 🔹 Générer des données uniques
+
+Faker permet de générer des valeurs **uniques** grâce à l'attribut `unique`.
+
+Cela garantit que certaines données (comme les noms ou les emails) ne seront pas dupliquées.
+
+```python
+from faker import Faker
+
+fake = Faker()
+
+name = fake.unique.name()
+email = fake.unique.email()
+```
+
+Cette fonctionnalité est particulièrement utile lors de la génération de bases de données fictives.
+
+---
+
+## 🔹 Les "Providers"
+
+Faker fonctionne avec des **providers**, qui sont des modules permettant de générer différents types de données.
+
+Exemples de données disponibles :
+
+- noms et prénoms
+- adresses
+- numéros de téléphone
+- emails
+- dates
+- entreprises
+- textes aléatoires
+
+Exemple :
+
+```python
+from faker import Faker
+
+fake = Faker()
+
+name = fake.name()
+address = fake.address()
+phone_number = fake.phone_number()
+email = fake.email()
+date = fake.date()
+company = fake.company()
+text = fake.text()
+```
+
+Ces providers permettent de produire des données proches de celles utilisées dans des applications réelles.
+
+---
+
+## 🔹 Générer des données spécifiques
+
+Faker permet également de générer des données adaptées à un pays ou une langue grâce au concept de **locale**.
+
+Par exemple :
+
+```python
+from faker import Faker
+
+fake = Faker('fr_FR') # Génération des données en français.
+
+name = fake.name()
+address = fake.address()
+phone_number = fake.phone_number()
+
+```
+
+👉 Faker supporte de nombreuses locales : `en_US`, `fr_FR`, `de_DE`, `es_ES`, etc.
+
+---
+
+## 🔹 Exemple d’utilisation avec un mini-script
+
+Pour mieux comprendre l’utilisation de la bibliothèque **Faker**, un mini-script Python a été réalisé afin de générer une base de données fictive d’utilisateurs.
+
+Ce script permet notamment de :
+
+- générer **1000 utilisateurs**
+- créer des données réalistes (nom, email, adresse, téléphone)
+- générer une **date de naissance aléatoire**
+- enregistrer les données dans un **fichier JSON**
+
+Le script complet est disponible ici :
+
+📁 Exemple pratique : [mini-script](../Exercices/Partie_02/db_aleatoire_avec_Faker.py)
+
+Ce script génère ensuite un fichier :
+
+[`db_aleatoire.json`](../Exercices/Partie_02/db_aleatoire.json)
+
+qui contient une base de données fictive pouvant être utilisée pour des tests ou des démonstrations.
+
+---
+## 🧠 Cas d'utilisation typiques
+
+La bibliothèque Faker est souvent utilisée pour :
+
+- tester une base de données
+- remplir un site web avec des données fictives
+- simuler des utilisateurs
+- créer des jeux de données pour des démonstrations.
+- Très utile pour les projets de data science, bases de données, tests unitaires, API, etc.
+
+---
+
+## 📌 Résumé
+
+La bibliothèque **Faker** permet de générer facilement des **données réalistes et aléatoires**.
+
+Elle est très utile pour :
+
+- tester des applications
+- créer des bases de données fictives
+- simuler des utilisateurs
+
+Grâce à ses nombreux providers et à la gestion des locales, Faker permet de produire des données proches de la réalité.
+
+## Section 52 : Les environnements virtuels
+
+## 🎯 Objectif de la section
+
+Comprendre le rôle des **environnements virtuels** en Python et apprendre à les utiliser pour isoler les dépendances d’un projet.
+
+Les environnements virtuels permettent de créer un espace indépendant dans lequel on peut installer des bibliothèques spécifiques sans affecter les autres projets Python.
+
+---
+
+## 🔹 Pourquoi utiliser un environnement virtuel ?
+
+Dans un système Python classique, toutes les bibliothèques sont installées **globalement**.
+
+Cela peut provoquer plusieurs problèmes :
+
+- conflits de versions entre différentes bibliothèques
+- incompatibilités entre plusieurs projets
+- difficulté à reproduire un environnement de développement.
+
+Les environnements virtuels permettent de résoudre ces problèmes en isolant les dépendances de chaque projet.
+
+Chaque projet peut ainsi utiliser ses **propres versions de bibliothèques**.
+
+---
+
+## 🔹 Créer un environnement virtuel
+
+Python propose un module intégré appelé **venv** permettant de créer un environnement virtuel.
+
+Dans le terminal :
+
+Exemple :
+
+```python
+python3 -m venv env
+```
+
+Cette commande crée un dossier env/ contenant un environnement Python isolé.
+
+---
+
+## 🔹 Activer l’environnement virtuel
+
+Une fois l’environnement créé, il doit être activé.
+
+Sur **Windows** :
+
+```python
+env\Scripts\activate
+```
+
+Sur **macOS / Linux** :
+
+```python
+source env/bin/activate
+```
+
+Lorsque l’environnement est activé, les packages installés avec `pip` seront installés uniquement dans cet environnement.
+
+---
+
+## 🔹 Installer des packages dans l’environnement
+
+Une fois l’environnement activé, on peut installer des bibliothèques avec `pip` :
+
+```python
+pip install package_name
+```
+
+Ces bibliothèques seront installées **uniquement dans l’environnement virtuel actif**.
+
+---
+
+## 🔹 Désactiver l’environnement virtuel
+
+Pour quitter l’environnement virtuel :
+
+```python
+deactivate
+```
+
+Le système revient alors à l’environnement Python global.
+
+---
+
+## 🧠 Concepts clés
+
+Quelques idées importantes à retenir :
+
+- Un environnement virtuel isole les dépendances d’un projet Python.
+- Chaque projet peut utiliser ses propres versions de bibliothèques.
+- L’outil `venv` est intégré à Python et permet de créer facilement ces environnements.
+- Les environnements virtuels facilitent la gestion des dépendances et la reproductibilité des projets.
+
+---
+
+## 📌 Résumé
+
+Les environnements virtuels sont une pratique essentielle en développement Python.
+
+Ils permettent :
+
+- d’éviter les conflits entre bibliothèques
+- de maintenir des projets indépendants
+- de reproduire facilement un environnement de développement
+
+Dans les projets Python modernes, l’utilisation d’environnements virtuels est considérée comme une **bonne pratique indispensable**.

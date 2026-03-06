@@ -1,6 +1,6 @@
 """
 Le but de projet est d'organiser éfficacement les données contenues dans le fichier texte 'prenoms.txt'.
-Ainsi, nous allons tous les noms contenus dans ce fichier, les trier par ordre alphabétique, et les écrire dans un nouveau fichier 'prenoms_organises.txt'.
+Ainsi, nous allons recopier tous les noms contenus dans ce fichier, les trier par ordre alphabétique, et les écrire dans un nouveau fichier 'prenoms_organises.txt'.
 Etapes:
 1. Ouvrir le fichier 'prenoms.txt' en mode lecture.
 2. Récuper chaque prénom séparément et les stocker dans une liste.
